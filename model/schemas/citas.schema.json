@@ -5,39 +5,49 @@
   "required": [
     "clienteId",
     "bicicletaId",
-    "fechaHora",
+    "fecha",
+    "hora",
     "motivo",
-    "estado",
-    "fechaCreacion"
+    "estado"
   ],
   "properties": {
     "_id": {
       "type": "string",
-      "pattern": "^[0-9a-fA-F]{24}$"
+      "pattern": "^[0-9a-fA-F]{24}$",
+      "description": "Identificador"
     },
     "clienteId": {
       "type": "string",
-      "pattern": "^[0-9a-fA-F]{24}$"
+      "pattern": "^[0-9a-fA-F]{24}$",
+      "description": "Cliente"
     },
     "bicicletaId": {
       "type": "string",
-      "pattern": "^[0-9a-fA-F]{24}$"
+      "pattern": "^[0-9a-fA-F]{24}$",
+      "description": "Bicicleta"
     },
-    "fechaHora": {
+    "fecha": {
       "type": "string",
-      "format": "date-time"
+      "description": "Fecha de la cita"
+    },
+    "hora": {
+      "type": "string",
+      "description": "Hora de la cita"
     },
     "motivo": {
-      "type": "string"
+      "type": "string",
+      "description": "Motivo de la visita"
     },
-    "problemasReportados": {
-      "type": "string"
+    "problemasObservados": {
+      "type": "string",
+      "description": "Problemas observados descritos por el cliente"
     },
     "serviciosInteres": {
       "type": "array",
       "items": {
         "type": "string"
-      }
+      },
+      "description": "Servicios de interés indicados por el cliente"
     },
     "estado": {
       "type": "string",
@@ -46,20 +56,19 @@
         "confirmada",
         "atendida",
         "cancelada"
-      ]
+      ],
+      "description": "Estado de la cita"
     },
-    "observaciones": {
-      "type": "string"
+    "observacionCambio": {
+      "type": "string",
+      "description": "Observación sobre el cambio de horario por el coordinador"
     },
     "coordinadorId": {
       "type": [
         "string",
         "null"
-      ]
-    },
-    "fechaCreacion": {
-      "type": "string",
-      "format": "date-time"
+      ],
+      "description": "Coordinador que confirma o modifica disponibilidad"
     }
   }
 }

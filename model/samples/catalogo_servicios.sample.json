@@ -1,20 +1,19 @@
 [
   {
     "_id": "652f11cfe4b02b9a33445566",
-    "nombre": "Mantenimiento General Preventivo",
-    "categoria": "mantenimiento preventivo",
-    "descripcion": "Desarme general, limpieza de transmisión por ultrasonido, engrase de rodamientos y ajuste general.",
-    "duracionEstimadaMinutos": 180,
-    "precioReferencia": 120000,
+    "nombre": "Mantenimiento Preventivo de Frenos",
+    "categoria": "frenos",
+    "descripcion": "Purga de fluido hidráulico, desgasificado de pastillas y centrado de discos.",
+    "duracionEstimada": "60 minutos",
+    "precioReferencia": 55000,
     "tareasHabituales": [
-      "Lavado y desengrase de transmisión",
-      "Engrase de rodamientos sellados",
-      "Calibración de cambios y frenos"
+      "Extracción de fluido degradado",
+      "Inyección de fluido DOT o mineral nuevo",
+      "Alineación de cáliper"
     ],
     "recomendaciones": [
-      "Realizar cada 600 km o 3 meses",
-      "Lubricar cadena con cera especial"
-    ],
-    "activo": true
+      "No lavar pastillas ni rotores con solventes derivados de petróleo.",
+      "Asentar las pastillas nuevas en los primeros 20 km."
+    ]
   }
 ]

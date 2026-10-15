@@ -6,18 +6,18 @@
     "nombre",
     "categoria",
     "descripcion",
-    "duracionEstimadaMinutos",
-    "precioReferencia",
-    "tareasHabituales",
-    "activo"
+    "duracionEstimada",
+    "precioReferencia"
   ],
   "properties": {
     "_id": {
       "type": "string",
-      "pattern": "^[0-9a-fA-F]{24}$"
+      "pattern": "^[0-9a-fA-F]{24}$",
+      "description": "Identificador"
     },
     "nombre": {
-      "type": "string"
+      "type": "string",
+      "description": "Nombre del servicio"
     },
     "categoria": {
       "type": "string",
@@ -28,32 +28,34 @@
         "ruedas",
         "suspensión",
         "componentes eléctricos"
-      ]
+      ],
+      "description": "Categoría del servicio"
     },
     "descripcion": {
-      "type": "string"
+      "type": "string",
+      "description": "Descripción"
     },
-    "duracionEstimadaMinutos": {
-      "type": "integer",
-      "minimum": 15
+    "duracionEstimada": {
+      "type": "string",
+      "description": "Duración estimada"
     },
     "precioReferencia": {
-      "type": "number"
+      "type": "number",
+      "description": "Precio de referencia"
     },
     "tareasHabituales": {
       "type": "array",
       "items": {
         "type": "string"
-      }
+      },
+      "description": "Lista de tareas habituales"
     },
     "recomendaciones": {
       "type": "array",
       "items": {
         "type": "string"
-      }
-    },
-    "activo": {
-      "type": "boolean"
+      },
+      "description": "Recomendaciones generales"
     }
   }
 }

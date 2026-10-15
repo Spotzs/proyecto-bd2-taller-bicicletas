@@ -1,14 +1,13 @@
 [
   {
     "_id": "652f13f1e4b02b9abbccddee",
-    "numeroOrden": "ORD-2026-00001",
     "citaId": "652f12e0e4b02b9a77889900",
     "cliente": {
       "usuarioId": "652f0fa5e4b02b9a87654321",
-      "nombre": "Carlos Andrés Echeverry",
-      "documento": "1144123456",
-      "telefono": "3154879621",
-      "correo": "carlos.echeverry@uao.edu.co",
+      "nombreCompleto": "Carlos Andrés Echeverry",
+      "documentoIdentificacion": "1144123456",
+      "numeroTelefono": "3154879621",
+      "correoElectronico": "carlos.echeverry@uao.edu.co",
       "direccion": "Carrera 100 # 16-20, Ciudad Jardín, Cali"
     },
     "bicicleta": {
@@ -19,94 +18,90 @@
       "color": "Rojo Carmín / Negro",
       "numeroSerie": "WSBC601248596T"
     },
-    "coordinadorId": "652f0fa5e4b02b9a87654323",
+    "fechaRecepcion": "2026-10-15T09:15:00Z",
+    "fechaEstimadaEntrega": "2026-10-16T17:00:00Z",
+    "coordinadorResponsable": {
+      "coordinadorId": "652f0fa5e4b02b9a87654323",
+      "nombreCompleto": "Ingrid Marín Perea"
+    },
     "tecnicosAsignados": [
       {
         "tecnicoId": "652f0fa5e4b02b9a87654322",
-        "nombre": "Jhonatan Riascos Mina"
+        "nombreCompleto": "Jhonatan Riascos Mina"
       }
     ],
     "estado": "entregada",
     "recepcion": {
-      "fechaRecepcion": "2026-10-15T09:15:00Z",
-      "fechaEstimadaEntrega": "2026-10-16T17:00:00Z",
-      "problemaReportado": "Pérdida de tacto en maneta de freno trasero, ruido en transmisión",
-      "condicionesObservadas": "Bicicleta con barro moderado, cadena reseca",
+      "problemaReportado": "Pérdida de tacto en maneta trasera y ruido metálico",
+      "condicionesObservadas": "Bicicleta con barro moderado y cadena seca",
       "accesoriosEntregados": [
-        "Soporte de ciclo-computador Garmin",
-        "Porta-caramañola"
+        "Soporte de ciclo-computador Garmin"
       ],
       "fotografias": [
         {
           "nombreArchivo": "recepcion_lateral.jpg",
-          "descripcion": "Foto lateral de ingreso",
-          "ubicacion": "https://storage.tallercycle.com/evidencias/recepcion_lateral.jpg"
+          "descripcion": "Foto general de ingreso",
+          "ubicacion": "https://storage.tallercycle.com/evidencias/recepcion.jpg"
         }
       ]
     },
     "diagnostico": {
-      "fechaDiagnostico": "2026-10-15T11:00:00Z",
-      "tecnicoResponsableId": "652f0fa5e4b02b9a87654322",
       "componentesRevisados": [
         "Frenos Hidráulicos",
-        "Transmisión",
-        "Suspensión"
+        "Transmisión"
       ],
+      "condicion": "Desgaste severo en pastillas traseras y líquido DOT degradado",
       "hallazgos": [
         {
           "componente": "Freno Trasero",
-          "descripcion": "Pastillas cristalizadas al 10% y líquido degradado",
-          "prioridad": "alta",
-          "observaciones": "Riesgo de daño en rotor",
+          "descripcion": "Pastillas cristalizadas con espesor al 10%",
+          "prioridadAtencion": "alta",
+          "observaciones": "Riesgo de daño al rotor",
           "evidencias": [
             {
               "nombreArchivo": "pastilla_desgastada.jpg",
-              "descripcion": "Pastilla al límite",
+              "descripcion": "Evidencia de pastilla cristalizada",
               "ubicacion": "https://storage.tallercycle.com/evidencias/pastilla.jpg"
             }
           ]
         }
       ],
       "accionesRecomendadas": [
-        "Purga y cambio de pastillas traseras"
+        "Purga completa y sustitución de pastillas traseras"
       ]
     },
     "propuesta": {
-      "fechaPropuesta": "2026-10-15T12:00:00Z",
       "trabajos": [
         {
-          "trabajoId": "TRAB-001",
-          "servicioCatalogoId": "652f11cfe4b02b9a33445566",
-          "descripcion": "Purga de freno trasero y cambio de pastillas",
-          "componente": "Frenos",
+          "servicioODescripcion": "Purga de freno trasero y cambio de pastillas",
+          "componenteInvolucrado": "Frenos Hidráulicos",
           "costoEstimadoManoObra": 45000,
           "repuestosPrevistos": [
             {
               "nombre": "Pastillas Metálicas SRAM G2",
-              "especificaciones": "Sinterizadas",
+              "especificacionesRelevantes": "Sinterizadas originales",
               "cantidad": 1,
               "precioUnitarioEstimado": 95000
             }
           ],
-          "estadoAutorizacion": "autorizado",
-          "decisionCliente": {
-            "fechaDecision": "2026-10-15T12:30:00Z",
-            "comentarios": "Aprobado repuesto original"
-          },
-          "observaciones": "Confirmado por el cliente"
+          "observaciones": "Requiere purga con líquido DOT 5.1",
+          "autorizacionCliente": {
+            "decision": "autorizado",
+            "fecha": "2026-10-15T12:30:00Z",
+            "comentarios": "Aprobado con repuesto original"
+          }
         }
       ],
-      "valorTotalEstimado": 140000
+      "valorEstimadoPropuesta": 140000
     },
     "ejecucion": {
       "trabajosRealizados": [
         {
-          "trabajoId": "TRAB-001",
-          "responsableId": "652f0fa5e4b02b9a87654322",
+          "responsable": "Jhonatan Riascos Mina",
           "fechaInicio": "2026-10-15T14:00:00Z",
           "fechaFinalizacion": "2026-10-15T15:30:00Z",
           "estado": "finalizado",
-          "descripcionRealizada": "Purga completa con líquido nuevo y calibración",
+          "descripcionRealizada": "Se purgaron ductos, instalaron pastillas nuevas y se ajustó cáliper",
           "repuestosUtilizados": [
             {
               "nombre": "Pastillas Metálicas SRAM G2",
@@ -117,77 +112,80 @@
         }
       ]
     },
-    "historialEstados": [
+    "historialCambiosEstado": [
       {
-        "estado": "recibida",
         "fecha": "2026-10-15T09:15:00Z",
-        "usuarioResponsableId": "652f0fa5e4b02b9a87654323",
-        "observacion": "Bicicleta ingresada con cita"
+        "usuarioResponsable": "Ingrid Marín Perea",
+        "observacion": "Bicicleta recibida en taller",
+        "estado": "recibida"
       },
       {
-        "estado": "en_diagnostico",
         "fecha": "2026-10-15T10:30:00Z",
-        "usuarioResponsableId": "652f0fa5e4b02b9a87654322",
-        "observacion": "Inicio de revisión"
+        "usuarioResponsable": "Jhonatan Riascos Mina",
+        "observacion": "Inicio de diagnóstico técnico",
+        "estado": "en diagnóstico"
       },
       {
-        "estado": "pendiente_autorizacion",
         "fecha": "2026-10-15T12:00:00Z",
-        "usuarioResponsableId": "652f0fa5e4b02b9a87654323",
-        "observacion": "Cotización enviada"
+        "usuarioResponsable": "Ingrid Marín Perea",
+        "observacion": "Propuesta enviada al cliente",
+        "estado": "pendiente de autorización"
       },
       {
-        "estado": "en_ejecucion",
         "fecha": "2026-10-15T13:45:00Z",
-        "usuarioResponsableId": "652f0fa5e4b02b9a87654323",
-        "observacion": "Cliente autorizó TRAB-001"
+        "usuarioResponsable": "Ingrid Marín Perea",
+        "observacion": "Cliente autorizó propuesta de intervención",
+        "estado": "en ejecución"
       },
       {
-        "estado": "lista_para_entrega",
         "fecha": "2026-10-15T16:00:00Z",
-        "usuarioResponsableId": "652f0fa5e4b02b9a87654322",
-        "observacion": "Control de calidad aprobado"
+        "usuarioResponsable": "Jhonatan Riascos Mina",
+        "observacion": "Trabajo concluido y revisión técnica aprobada",
+        "estado": "lista para entrega"
       },
       {
-        "estado": "entregada",
         "fecha": "2026-10-15T17:30:00Z",
-        "usuarioResponsableId": "652f0fa5e4b02b9a87654323",
-        "observacion": "Retirada a satisfacción"
+        "usuarioResponsable": "Ingrid Marín Perea",
+        "observacion": "Bicicleta entregada al cliente",
+        "estado": "entregada"
       }
     ],
     "revisionEntrega": {
-      "fechaRevision": "2026-10-15T15:50:00Z",
       "puntosVerificados": [
         {
-          "punto": "Tacto de freno",
+          "punto": "Tacto firme de freno",
           "resultado": true
         },
         {
-          "punto": "Ausencia de roces",
+          "punto": "Ausencia de roce disco-pastilla",
+          "resultado": true
+        },
+        {
+          "punto": "Entrega de accesorios completos",
           "resultado": true
         }
       ],
-      "aprobada": true,
-      "recomendaciones": "Asentar pastillas los primeros 20 km"
+      "resultado": "Aprobado",
+      "recomendacionesUsoMantenimiento": "Asentar pastillas durante los primeros 20 km",
+      "aprobada": true
     },
-    "entregaConfirmada": {
-      "fechaEntrega": "2026-10-15T17:30:00Z",
-      "confirmacionCliente": true
+    "entrega": {
+      "fecha": "2026-10-15T17:30:00Z",
+      "confirmacionRecepcionCliente": true
     },
     "garantias": [
       {
-        "trabajoId": "TRAB-001",
-        "duracionDias": 30,
+        "duracion": "30 días",
         "fechaInicio": "2026-10-15T17:30:00Z",
-        "condiciones": "Cubre fallas de purga y reajuste",
-        "exclusiones": "No cubre lavado abrasivo"
+        "condiciones": "Cubre fallas de purga o desajuste de cáliper",
+        "exclusiones": "No cubre lavado abrasivo ni contaminación con aceites externos",
+        "solicitudes": []
       }
     ],
     "valoracion": {
-      "calificacion": 5,
-      "comentarios": "Excelente servicio, la frenada quedó impecable",
-      "sugerencias": "Ninguna, muy amables",
-      "fechaValoracion": "2026-10-15T19:00:00Z"
+      "calificacionNumerica": 5,
+      "comentarios": "Excelente atención y los frenos quedaron con tacto impecable",
+      "sugerencias": "Ninguna, excelente servicio"
     }
   }
 ]

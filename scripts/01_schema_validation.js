@@ -4,64 +4,37 @@
  * Proyecto: Sistema de Gestión de Servicios de Mantenimiento y Reparación de Bicicletas
  * 
  * Script: 01_schema_validation.js
- * Descripción: Creación de colecciones con Schema Validation ($jsonSchema) estricto.
+ * Descripción: Creación de colecciones con Schema Validation ($jsonSchema)
+ *              100% estricto y fiel a las especificaciones textuales del PDF.
  */
 
 const dbName = "taller_bicicletas_db";
 const db = db.getSiblingDB(dbName);
 
-print(`[+] Configurando validación de esquemas en la base de datos: ${dbName}`);
+print(`[+] Configurando validación de esquemas en: ${dbName}`);
 
 // =============================================================================
 // 1. COLECCIÓN: usuarios
+// "Cada usuario deberá registrar nombre completo, documento de identificación,
+// correo electrónico y número de teléfono. Los clientes también podrán registrar su dirección."
+// "Los usuarios podrán tener uno de cuatro roles: cliente, técnico y coordinador."
 // =============================================================================
 db.createCollection("usuarios", {
   validator: {
     $jsonSchema: {
       bsonType: "object",
-      required: ["nombre", "documento", "correo", "telefono", "rol", "fechaCreacion", "activo"],
+      required: ["nombreCompleto", "documentoIdentificacion", "correoElectronico", "numeroTelefono", "rol"],
       properties: {
-        _id: {
-          bsonType: "objectId",
-          description: "Identificador único inmutable del usuario"
-        },
-        nombre: {
-          bsonType: "string",
-          minLength: 3,
-          maxLength: 120,
-          description: "Nombre completo del usuario (obligatorio)"
-        },
-        documento: {
-          bsonType: "string",
-          pattern: "^[0-9A-Za-z-]{5,20}$",
-          description: "Documento de identificación único (cédula, pasaporte, etc.)"
-        },
-        correo: {
-          bsonType: "string",
-          pattern: "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
-          description: "Correo electrónico con formato válido (obligatorio y único)"
-        },
-        telefono: {
-          bsonType: "string",
-          pattern: "^[0-9+ ]{7,15}$",
-          description: "Número telefónico o de celular (obligatorio)"
-        },
+        _id: { bsonType: "objectId" },
+        nombreCompleto: { bsonType: "string", description: "Nombre completo" },
+        documentoIdentificacion: { bsonType: "string", description: "Documento de identificación" },
+        correoElectronico: { bsonType: "string", pattern: "^.+@.+$", description: "Correo electrónico" },
+        numeroTelefono: { bsonType: "string", description: "Número de teléfono" },
         rol: {
           enum: ["cliente", "tecnico", "coordinador", "administrador"],
-          description: "Rol asignado dentro del sistema del taller"
+          description: "Uno de cuatro roles"
         },
-        direccion: {
-          bsonType: "string",
-          description: "Dirección de residencia o contacto (obligatoria para clientes)"
-        },
-        fechaCreacion: {
-          bsonType: "date",
-          description: "Fecha y hora de registro en la plataforma"
-        },
-        activo: {
-          bsonType: "bool",
-          description: "Estado operativo de la cuenta de usuario"
-        }
+        direccion: { bsonType: "string", description: "Dirección registrada por clientes" }
       }
     }
   },
@@ -71,112 +44,45 @@ db.createCollection("usuarios", {
 
 // =============================================================================
 // 2. COLECCIÓN: bicicletas
+// "Cada bicicleta deberá incluir un identificador único, propietario, marca, modelo,
+// tipo, color y número de serie cuando esté disponible... características técnicas comunes...
+// y variables según el tipo de bicicleta (montaña: suspensión y recorrido; eléctrica: batería y motor)."
 // =============================================================================
 db.createCollection("bicicletas", {
   validator: {
     $jsonSchema: {
       bsonType: "object",
-      required: [
-        "propietarioId",
-        "marca",
-        "modelo",
-        "tipo",
-        "color",
-        "caracteristicasComunes",
-        "fechaRegistro",
-        "activo"
-      ],
+      required: ["propietarioId", "marca", "modelo", "tipo", "color", "caracteristicasComunes"],
       properties: {
         _id: { bsonType: "objectId" },
-        propietarioId: {
-          bsonType: "objectId",
-          description: "Referencia obligatoria a usuarios._id (debe ser rol cliente)"
-        },
-        marca: {
-          bsonType: "string",
-          minLength: 2,
-          maxLength: 60,
-          description: "Marca del fabricante de la bicicleta"
-        },
-        modelo: {
-          bsonType: "string",
-          minLength: 1,
-          maxLength: 80,
-          description: "Modelo comercial de la bicicleta"
-        },
+        propietarioId: { bsonType: "objectId", description: "Propietario" },
+        marca: { bsonType: "string", description: "Marca" },
+        modelo: { bsonType: "string", description: "Modelo" },
         tipo: {
           enum: ["urbana", "ruta", "montaña", "eléctrica"],
-          description: "Tipo de bicicleta que define las características técnicas adicionales"
+          description: "Tipo de bicicleta"
         },
-        color: {
-          bsonType: "string",
-          description: "Color principal de la bicicleta"
-        },
-        numeroSerie: {
-          bsonType: ["string", "null"],
-          description: "Número de serie o serial del marco grabado de fábrica (opcional)"
-        },
+        color: { bsonType: "string", description: "Color" },
+        numeroSerie: { bsonType: ["string", "null"], description: "Número de serie cuando esté disponible" },
         caracteristicasComunes: {
           bsonType: "object",
-          required: [
-            "tamanoMarco",
-            "material",
-            "tamanoRueda",
-            "tipoFrenos",
-            "transmision"
-          ],
+          required: ["tamanoMarco", "material", "tamanoRueda", "tipoFrenos", "transmision"],
           properties: {
-            tamanoMarco: {
-              bsonType: "string",
-              description: "Talla del marco (ej: XS, S, M, L, XL, 52cm, 54cm)"
-            },
-            material: {
-              bsonType: "string",
-              description: "Material de fabricación (ej: Aluminio, Carbono, Acero, Titanio)"
-            },
-            tamanoRueda: {
-              bsonType: "string",
-              description: "Diámetro de la rueda (ej: 26\", 27.5\", 29\", 700c)"
-            },
-            tipoFrenos: {
-              bsonType: "string",
-              description: "Tecnología de frenos (ej: Disco Hidráulico, Disco Mecánico, V-Brake, Herradura)"
-            },
-            transmision: {
-              bsonType: "string",
-              description: "Configuración de cambios (ej: Shimano Deore 1x12, 2x11, Monomarcha)"
-            }
+            tamanoMarco: { bsonType: "string", description: "Tamaño del marco" },
+            material: { bsonType: "string", description: "Material" },
+            tamanoRueda: { bsonType: "string", description: "Tamaño de rueda" },
+            tipoFrenos: { bsonType: "string", description: "Tipo de frenos" },
+            transmision: { bsonType: "string", description: "Transmisión" }
           }
         },
         especificacionesTipo: {
           bsonType: "object",
-          description: "Atributos técnicos polimórficos según el tipo de bicicleta",
           properties: {
-            suspension: {
-              bsonType: "string",
-              description: "Tipo de suspensión para montaña (ej: Delantera Aire, Doble Suspensión)"
-            },
-            recorrido: {
-              bsonType: "string",
-              description: "Recorrido de la suspensión en mm (ej: 100mm, 120mm, 150mm)"
-            },
-            bateria: {
-              bsonType: "string",
-              description: "Capacidad y voltaje de batería para eléctricas (ej: 36V 14Ah 504Wh)"
-            },
-            motor: {
-              bsonType: "string",
-              description: "Potencia y fabricante del motor eléctrico (ej: Bosch Performance CX 250W)"
-            }
+            suspension: { bsonType: "string", description: "Suspensión (montaña)" },
+            recorrido: { bsonType: "string", description: "Recorrido (montaña)" },
+            bateria: { bsonType: "string", description: "Batería (eléctrica)" },
+            motor: { bsonType: "string", description: "Motor (eléctrica)" }
           }
-        },
-        fechaRegistro: {
-          bsonType: "date",
-          description: "Fecha en la que el cliente registró la bicicleta en el taller"
-        },
-        activo: {
-          bsonType: "bool",
-          description: "Indica si la bicicleta continúa activa en el perfil del cliente"
         }
       }
     }
@@ -187,28 +93,17 @@ db.createCollection("bicicletas", {
 
 // =============================================================================
 // 3. COLECCIÓN: catalogo_servicios
+// "catálogo de servicios que incluirá identificador, nombre, categoría,
+// descripción, duración estimada y precio de referencia... tareas habituales y recomendaciones generales."
 // =============================================================================
 db.createCollection("catalogo_servicios", {
   validator: {
     $jsonSchema: {
       bsonType: "object",
-      required: [
-        "nombre",
-        "categoria",
-        "descripcion",
-        "duracionEstimadaMinutos",
-        "precioReferencia",
-        "tareasHabituales",
-        "activo"
-      ],
+      required: ["nombre", "categoria", "descripcion", "duracionEstimada", "precioReferencia"],
       properties: {
         _id: { bsonType: "objectId" },
-        nombre: {
-          bsonType: "string",
-          minLength: 3,
-          maxLength: 100,
-          description: "Nombre descriptivo del servicio de taller"
-        },
+        nombre: { bsonType: "string", description: "Nombre" },
         categoria: {
           enum: [
             "mantenimiento preventivo",
@@ -218,40 +113,20 @@ db.createCollection("catalogo_servicios", {
             "suspensión",
             "componentes eléctricos"
           ],
-          description: "Categoría estandarizada del servicio"
+          description: "Categoría"
         },
-        descripcion: {
-          bsonType: "string",
-          description: "Detalle técnico del alcance del servicio"
-        },
-        duracionEstimadaMinutos: {
-          bsonType: "int",
-          minimum: 15,
-          maximum: 1440,
-          description: "Tiempo estimado de ejecución en minutos"
-        },
-        precioReferencia: {
-          bsonType: "decimal",
-          description: "Precio base sugerido de mano de obra en COP (Decimal128)"
-        },
+        descripcion: { bsonType: "string", description: "Descripción" },
+        duracionEstimada: { bsonType: "string", description: "Duración estimada" },
+        precioReferencia: { bsonType: ["decimal", "double", "int"], description: "Precio de referencia" },
         tareasHabituales: {
           bsonType: "array",
-          minItems: 1,
-          items: {
-            bsonType: "string"
-          },
-          description: "Lista de actividades estándar desarrolladas en el servicio"
+          items: { bsonType: "string" },
+          description: "Lista de tareas habituales"
         },
         recomendaciones: {
           bsonType: "array",
-          items: {
-            bsonType: "string"
-          },
-          description: "Pautas de mantenimiento preventivo y buenas prácticas"
-        },
-        activo: {
-          bsonType: "bool",
-          description: "Indica si el servicio está disponible para ofrecerse en taller"
+          items: { bsonType: "string" },
+          description: "Recomendaciones generales"
         }
       }
     }
@@ -262,64 +137,33 @@ db.createCollection("catalogo_servicios", {
 
 // =============================================================================
 // 4. COLECCIÓN: citas
+// "identificador, cliente, bicicleta, fecha, hora, motivo de la visita y estado (solicitada, confirmada, atendida o cancelada)...
+// problemas observados e indicar los servicios de su interés... observación sobre el cambio..."
 // =============================================================================
 db.createCollection("citas", {
   validator: {
     $jsonSchema: {
       bsonType: "object",
-      required: [
-        "clienteId",
-        "bicicletaId",
-        "fechaHora",
-        "motivo",
-        "estado",
-        "fechaCreacion"
-      ],
+      required: ["clienteId", "bicicletaId", "fecha", "hora", "motivo", "estado"],
       properties: {
         _id: { bsonType: "objectId" },
-        clienteId: {
-          bsonType: "objectId",
-          description: "Referencia a usuarios._id que solicita la cita"
-        },
-        bicicletaId: {
-          bsonType: "objectId",
-          description: "Referencia a bicicletas._id del cliente"
-        },
-        fechaHora: {
-          bsonType: "date",
-          description: "Fecha y hora reservada para recepción en taller"
-        },
-        motivo: {
-          bsonType: "string",
-          minLength: 5,
-          maxLength: 250,
-          description: "Razón principal de la solicitud de la cita"
-        },
-        problemasReportados: {
-          bsonType: "string",
-          description: "Fallas o ruidos manifestados por el usuario"
-        },
+        clienteId: { bsonType: "objectId", description: "Cliente" },
+        bicicletaId: { bsonType: "objectId", description: "Bicicleta" },
+        fecha: { bsonType: "string", description: "Fecha de la visita" },
+        hora: { bsonType: "string", description: "Hora de la visita" },
+        motivo: { bsonType: "string", description: "Motivo de la visita" },
+        problemasObservados: { bsonType: "string", description: "Problemas observados" },
         serviciosInteres: {
           bsonType: "array",
           items: { bsonType: "string" },
-          description: "Nombres o categorías de servicios del catálogo de interés"
+          description: "Servicios de su interés"
         },
         estado: {
           enum: ["solicitada", "confirmada", "atendida", "cancelada"],
-          description: "Estado del agendamiento"
+          description: "Estado"
         },
-        observaciones: {
-          bsonType: "string",
-          description: "Anotaciones del coordinador al confirmar o reprogramar"
-        },
-        coordinadorId: {
-          bsonType: ["objectId", "null"],
-          description: "Coordinador que gestionó o confirmó la disponibilidad"
-        },
-        fechaCreacion: {
-          bsonType: "date",
-          description: "Marca de tiempo de solicitud inicial"
-        }
+        observacionCambio: { bsonType: "string", description: "Observación sobre el cambio" },
+        coordinadorId: { bsonType: ["objectId", "null"], description: "Coordinador" }
       }
     }
   },
@@ -328,48 +172,44 @@ db.createCollection("citas", {
 });
 
 // =============================================================================
-// 5. COLECCIÓN: ordenes_servicio (Agregado Raíz Transaccional)
+// 5. COLECCIÓN: ordenes_servicio
+// Fiel a cada párrafo de las páginas 2 y 3 del PDF del proyecto.
 // =============================================================================
 db.createCollection("ordenes_servicio", {
   validator: {
     $jsonSchema: {
       bsonType: "object",
       required: [
-        "numeroOrden",
         "cliente",
         "bicicleta",
+        "fechaRecepcion",
+        "fechaEstimadaEntrega",
+        "coordinadorResponsable",
+        "tecnicosAsignados",
         "estado",
         "recepcion",
-        "historialEstados"
+        "historialCambiosEstado"
       ],
       properties: {
         _id: { bsonType: "objectId" },
-        numeroOrden: {
-          bsonType: "string",
-          pattern: "^ORD-[0-9]{4}-[0-9]{5}$",
-          description: "Código comercial visible de la orden (ej: ORD-2026-00001)"
-        },
-        citaId: {
-          bsonType: ["objectId", "null"],
-          description: "Referencia a la cita previa si la orden provino de agenda"
-        },
+        citaId: { bsonType: ["objectId", "null"], description: "Cita vinculada cuando corresponda" },
         cliente: {
           bsonType: "object",
-          required: ["usuarioId", "nombre", "documento", "telefono", "correo"],
-          description: "Snapshot inmutable de la información del cliente",
+          required: ["usuarioId", "nombreCompleto", "documentoIdentificacion", "numeroTelefono", "correoElectronico"],
+          description: "Cliente (Snapshot histórico)",
           properties: {
             usuarioId: { bsonType: "objectId" },
-            nombre: { bsonType: "string" },
-            documento: { bsonType: "string" },
-            telefono: { bsonType: "string" },
-            correo: { bsonType: "string" },
+            nombreCompleto: { bsonType: "string" },
+            documentoIdentificacion: { bsonType: "string" },
+            numeroTelefono: { bsonType: "string" },
+            correoElectronico: { bsonType: "string" },
             direccion: { bsonType: "string" }
           }
         },
         bicicleta: {
           bsonType: "object",
           required: ["bicicletaId", "marca", "modelo", "tipo", "color"],
-          description: "Snapshot inmutable de la bicicleta al ingresar a taller",
+          description: "Bicicleta (Snapshot histórico)",
           properties: {
             bicicletaId: { bsonType: "objectId" },
             marca: { bsonType: "string" },
@@ -379,51 +219,56 @@ db.createCollection("ordenes_servicio", {
             numeroSerie: { bsonType: ["string", "null"] }
           }
         },
-        coordinadorId: {
-          bsonType: ["objectId", "null"],
-          description: "Coordinador responsable de supervisar la orden"
+        fechaRecepcion: { bsonType: "date", description: "Fecha de recepción" },
+        fechaEstimadaEntrega: { bsonType: "date", description: "Fecha estimada de entrega" },
+        coordinadorResponsable: {
+          bsonType: "object",
+          required: ["coordinadorId", "nombreCompleto"],
+          properties: {
+            coordinadorId: { bsonType: "objectId" },
+            nombreCompleto: { bsonType: "string" }
+          }
         },
         tecnicosAsignados: {
           bsonType: "array",
           items: {
             bsonType: "object",
-            required: ["tecnicoId", "nombre"],
+            required: ["tecnicoId", "nombreCompleto"],
             properties: {
               tecnicoId: { bsonType: "objectId" },
-              nombre: { bsonType: "string" }
+              nombreCompleto: { bsonType: "string" }
             }
           }
         },
         estado: {
           enum: [
             "recibida",
-            "en_diagnostico",
-            "pendiente_autorizacion",
-            "en_ejecucion",
-            "lista_para_entrega",
+            "en diagnóstico",
+            "pendiente de autorización",
+            "en ejecución",
+            "lista para entrega",
             "entregada",
             "cancelada"
           ],
-          description: "Estado operativo dentro del flujo del taller"
+          description: "Estado correspondiente"
         },
         recepcion: {
           bsonType: "object",
-          required: ["fechaRecepcion", "problemaReportado", "condicionesObservadas"],
+          required: ["problemaReportado", "condicionesObservadas"],
+          description: "Al recibir la bicicleta",
           properties: {
-            fechaRecepcion: { bsonType: "date" },
-            fechaEstimadaEntrega: { bsonType: "date" },
-            problemaReportado: { bsonType: "string" },
-            condicionesObservadas: { bsonType: "string" },
+            problemaReportado: { bsonType: "string", description: "Problema reportado" },
+            condicionesObservadas: { bsonType: "string", description: "Condiciones observadas" },
             accesoriosEntregados: {
               bsonType: "array",
               items: { bsonType: "string" },
-              description: "Luces, odómetro, alforjas, bolsa de sillín, pedales"
+              description: "Accesorios entregados"
             },
             fotografias: {
               bsonType: "array",
               items: {
                 bsonType: "object",
-                required: ["nombreArchivo", "ubicacion"],
+                required: ["nombreArchivo", "descripcion", "ubicacion"],
                 properties: {
                   nombreArchivo: { bsonType: "string" },
                   descripcion: { bsonType: "string" },
@@ -435,28 +280,29 @@ db.createCollection("ordenes_servicio", {
         },
         diagnostico: {
           bsonType: "object",
+          description: "Durante el diagnóstico",
           properties: {
-            fechaDiagnostico: { bsonType: "date" },
-            tecnicoResponsableId: { bsonType: "objectId" },
             componentesRevisados: {
               bsonType: "array",
-              items: { bsonType: "string" }
+              items: { bsonType: "string" },
+              description: "Componentes revisados"
             },
+            condicion: { bsonType: "string", description: "Su condición" },
             hallazgos: {
               bsonType: "array",
               items: {
                 bsonType: "object",
-                required: ["componente", "descripcion", "prioridad"],
+                required: ["componente", "descripcion", "prioridadAtencion", "observaciones"],
                 properties: {
                   componente: { bsonType: "string" },
                   descripcion: { bsonType: "string" },
-                  prioridad: { enum: ["baja", "media", "alta", "critica"] },
+                  prioridadAtencion: { bsonType: "string" },
                   observaciones: { bsonType: "string" },
                   evidencias: {
                     bsonType: "array",
                     items: {
                       bsonType: "object",
-                      required: ["nombreArchivo", "ubicacion"],
+                      required: ["nombreArchivo", "descripcion", "ubicacion"],
                       properties: {
                         nombreArchivo: { bsonType: "string" },
                         descripcion: { bsonType: "string" },
@@ -469,76 +315,72 @@ db.createCollection("ordenes_servicio", {
             },
             accionesRecomendadas: {
               bsonType: "array",
-              items: { bsonType: "string" }
+              items: { bsonType: "string" },
+              description: "Acciones recomendadas"
             }
           }
         },
         propuesta: {
           bsonType: "object",
+          description: "Propuesta de intervención",
           properties: {
-            fechaPropuesta: { bsonType: "date" },
             trabajos: {
               bsonType: "array",
               items: {
                 bsonType: "object",
                 required: [
-                  "trabajoId",
-                  "descripcion",
-                  "componente",
+                  "servicioODescripcion",
+                  "componenteInvolucrado",
                   "costoEstimadoManoObra",
-                  "estadoAutorizacion"
+                  "repuestosPrevistos",
+                  "observaciones"
                 ],
                 properties: {
-                  trabajoId: { bsonType: "string" },
-                  servicioCatalogoId: { bsonType: ["objectId", "null"] },
-                  descripcion: { bsonType: "string" },
-                  componente: { bsonType: "string" },
-                  costoEstimadoManoObra: { bsonType: "decimal" },
+                  servicioODescripcion: { bsonType: "string" },
+                  componenteInvolucrado: { bsonType: "string" },
+                  costoEstimadoManoObra: { bsonType: ["decimal", "double", "int"] },
                   repuestosPrevistos: {
                     bsonType: "array",
                     items: {
                       bsonType: "object",
-                      required: ["nombre", "cantidad", "precioUnitarioEstimado"],
+                      required: ["nombre", "especificacionesRelevantes", "cantidad", "precioUnitarioEstimado"],
                       properties: {
                         nombre: { bsonType: "string" },
-                        especificaciones: { bsonType: "string" },
-                        cantidad: { bsonType: "int", minimum: 1 },
-                        precioUnitarioEstimado: { bsonType: "decimal" }
+                        especificacionesRelevantes: { bsonType: "string" },
+                        cantidad: { bsonType: "int" },
+                        precioUnitarioEstimado: { bsonType: ["decimal", "double", "int"] }
                       }
                     }
                   },
-                  estadoAutorizacion: {
-                    enum: ["pendiente", "autorizado", "rechazado"],
-                    description: "Autorización granular realizada por el cliente"
-                  },
-                  decisionCliente: {
+                  observaciones: { bsonType: "string" },
+                  autorizacionCliente: {
                     bsonType: "object",
                     properties: {
-                      fechaDecision: { bsonType: "date" },
+                      decision: { enum: ["autorizado", "rechazado"] },
+                      fecha: { bsonType: "date" },
                       comentarios: { bsonType: "string" }
                     }
-                  },
-                  observaciones: { bsonType: "string" }
+                  }
                 }
               }
             },
-            valorTotalEstimado: { bsonType: "decimal" }
+            valorEstimadoPropuesta: { bsonType: ["decimal", "double", "int"] }
           }
         },
         ejecucion: {
           bsonType: "object",
+          description: "Desarrollo de cada trabajo autorizado",
           properties: {
             trabajosRealizados: {
               bsonType: "array",
               items: {
                 bsonType: "object",
-                required: ["trabajoId", "responsableId", "estado"],
+                required: ["responsable", "fechaInicio", "fechaFinalizacion", "estado", "descripcionRealizada"],
                 properties: {
-                  trabajoId: { bsonType: "string" },
-                  responsableId: { bsonType: "objectId" },
+                  responsable: { bsonType: "string" },
                   fechaInicio: { bsonType: "date" },
                   fechaFinalizacion: { bsonType: "date" },
-                  estado: { enum: ["en_progreso", "finalizado", "detenido"] },
+                  estado: { bsonType: "string" },
                   descripcionRealizada: { bsonType: "string" },
                   repuestosUtilizados: {
                     bsonType: "array",
@@ -547,8 +389,8 @@ db.createCollection("ordenes_servicio", {
                       required: ["nombre", "cantidad", "precioUnitarioAplicado"],
                       properties: {
                         nombre: { bsonType: "string" },
-                        cantidad: { bsonType: "int", minimum: 1 },
-                        precioUnitarioAplicado: { bsonType: "decimal" }
+                        cantidad: { bsonType: "int" },
+                        precioUnitarioAplicado: { bsonType: ["decimal", "double", "int"] }
                       }
                     }
                   }
@@ -557,34 +399,24 @@ db.createCollection("ordenes_servicio", {
             }
           }
         },
-        historialEstados: {
+        historialCambiosEstado: {
           bsonType: "array",
           minItems: 1,
+          description: "Historial de cambios de estado",
           items: {
             bsonType: "object",
-            required: ["estado", "fecha", "usuarioResponsableId"],
+            required: ["fecha", "usuarioResponsable", "observacion"],
             properties: {
-              estado: {
-                enum: [
-                  "recibida",
-                  "en_diagnostico",
-                  "pendiente_autorizacion",
-                  "en_ejecucion",
-                  "lista_para_entrega",
-                  "entregada",
-                  "cancelada"
-                ]
-              },
               fecha: { bsonType: "date" },
-              usuarioResponsableId: { bsonType: "objectId" },
-              observacion: { bsonType: "string" }
+              usuarioResponsable: { bsonType: "string" },
+              observacion: { bsonType: "string" },
+              estado: { bsonType: "string" }
             }
           }
         },
         revisionEntrega: {
           bsonType: "object",
           properties: {
-            fechaRevision: { bsonType: "date" },
             puntosVerificados: {
               bsonType: "array",
               items: {
@@ -596,25 +428,27 @@ db.createCollection("ordenes_servicio", {
                 }
               }
             },
-            aprobada: { bsonType: "bool" },
-            recomendaciones: { bsonType: "string" }
+            resultado: { bsonType: "string" },
+            recomendacionesUsoMantenimiento: { bsonType: "string" },
+            aprobada: { bsonType: "bool" }
           }
         },
-        entregaConfirmada: {
+        entrega: {
           bsonType: "object",
+          description: "Al entregar la bicicleta",
           properties: {
-            fechaEntrega: { bsonType: "date" },
-            confirmacionCliente: { bsonType: "bool" }
+            fecha: { bsonType: "date" },
+            confirmacionRecepcionCliente: { bsonType: "bool" }
           }
         },
         garantias: {
           bsonType: "array",
+          description: "Garantía de servicio a los trabajos que corresponda",
           items: {
             bsonType: "object",
-            required: ["trabajoId", "duracionDias", "fechaInicio"],
+            required: ["duracion", "fechaInicio", "condiciones", "exclusiones"],
             properties: {
-              trabajoId: { bsonType: "string" },
-              duracionDias: { bsonType: "int", minimum: 1 },
+              duracion: { bsonType: "string" },
               fechaInicio: { bsonType: "date" },
               condiciones: { bsonType: "string" },
               exclusiones: { bsonType: "string" },
@@ -622,20 +456,14 @@ db.createCollection("ordenes_servicio", {
                 bsonType: "array",
                 items: {
                   bsonType: "object",
-                  required: ["descripcion", "fecha", "estado"],
+                  required: ["descripcion", "fecha", "evidencias", "estado"],
                   properties: {
                     descripcion: { bsonType: "string" },
                     fecha: { bsonType: "date" },
                     evidencias: { bsonType: "array", items: { bsonType: "string" } },
-                    estado: { enum: ["recibida", "procede", "no_procede", "resuelta"] },
-                    resolucionCoordinador: {
-                      bsonType: "object",
-                      properties: {
-                        fecha: { bsonType: "date" },
-                        procede: { bsonType: "bool" },
-                        solucionAplicada: { bsonType: "string" }
-                      }
-                    }
+                    estado: { bsonType: "string" },
+                    procede: { bsonType: "bool" },
+                    solucionAplicada: { bsonType: "string" }
                   }
                 }
               }
@@ -644,12 +472,11 @@ db.createCollection("ordenes_servicio", {
         },
         valoracion: {
           bsonType: "object",
-          required: ["calificacion"],
+          description: "Valorar los servicios de las órdenes entregadas",
           properties: {
-            calificacion: { bsonType: "int", minimum: 1, maximum: 5 },
+            calificacionNumerica: { bsonType: "int", minimum: 1, maximum: 5 },
             comentarios: { bsonType: "string" },
-            sugerencias: { bsonType: "string" },
-            fechaValoracion: { bsonType: "date" }
+            sugerencias: { bsonType: "string" }
           }
         }
       }
@@ -659,4 +486,4 @@ db.createCollection("ordenes_servicio", {
   validationAction: "error"
 });
 
-print("[✓] Todas las colecciones y sus esquemas JSONSchema fueron creados exitosamente.");
+print("[✓] Esquemas estrictos de validación creados exitosamente conforme al PDF.");

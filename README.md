@@ -3,7 +3,7 @@
 ![MongoDB](https://img.shields.io/badge/MongoDB-v7.0+-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
 ![Hackolade](https://img.shields.io/badge/Hackolade-v8.3+-007ACC?style=for-the-badge&logo=hackolade&logoColor=white)
 ![UAO](https://img.shields.io/badge/UAO-Bases_de_Datos_2-C8102E?style=for-the-badge)
-![Status](https://img.shields.io/badge/Entrega_1-Completa-brightgreen?style=for-the-badge)
+![Status](https://img.shields.io/badge/Entrega_1-100%25_Fiel_al_PDF-brightgreen?style=for-the-badge)
 
 **Universidad Autónoma de Occidente (UAO)**  
 **Facultad de Ingeniería y Ciencias Básicas**  
@@ -17,13 +17,14 @@
 ## 📋 Tabla de Contenidos
 1. [Descripción General del Proyecto](#-descripción-general-del-proyecto)
 2. [Arquitectura y Modelo Conceptual de Documentos](#-arquitectura-y-modelo-conceptual-de-documentos)
-3. [Justificación Técnica: Embeber vs. Referenciar](#-justificación-técnica-embeber-vs-referenciar)
-4. [Patrones de Diseño NoSQL Implementados](#-patrones-de-diseño-nosql-implementados)
-5. [Estructura y Colecciones de la Base de Datos](#-estructura-y-colecciones-de-la-base-de-datos)
-6. [Validación de Esquemas ($jsonSchema)](#-validación-de-esquemas-jsonschema)
-7. [Reglas de Negocio e Integridad en MongoDB](#-reglas-de-negocio-e-integridad-en-mongodb)
-8. [Estructura del Repositorio](#-estructura-del-repositorio)
-9. [Instrucciones de Despliegue y Ejecución](#-instrucciones-de-despliegue-y-ejecución)
+3. [Auditoría de Campos: 100% Fiel al PDF](#-auditoría-de-campos-100-fiel-al-pdf)
+4. [Justificación Técnica: Embeber vs. Referenciar](#-justificación-técnica-embeber-vs-referenciar)
+5. [Patrones de Diseño NoSQL Implementados](#-patrones-de-diseño-nosql-implementados)
+6. [Estructura y Colecciones de la Base de Datos](#-estructura-y-colecciones-de-la-base-de-datos)
+7. [Validación de Esquemas ($jsonSchema)](#-validación-de-esquemas-jsonschema)
+8. [Reglas de Negocio e Integridad en MongoDB](#-reglas-de-negocio-e-integridad-en-mongodb)
+9. [Estructura del Repositorio](#-estructura-del-repositorio)
+10. [Instrucciones de Despliegue e Importación en Hackolade](#-instrucciones-de-despliegue-e-importación-en-hackolade)
 
 ---
 
@@ -35,9 +36,21 @@ Este proyecto digitaliza y centraliza la operación del taller mediante una base
 
 ---
 
-## 🏛 Arquitectura y Modelo Conceptual de Documentos
+## 🔍 Auditoría de Campos: 100% Fiel al PDF
 
-El diseño adopta un enfoque orientado al agregado donde la orden de servicio actúa como núcleo transaccional, respaldado por colecciones de soporte para clientes, inventario de bicicletas y catálogo de servicios maestros.
+El modelo fue auditado minuciosamente párrafo por párrafo contra el documento oficial del proyecto para garantizar que **no contenga ningún campo ajeno o inventado**, preservando exactamente la semántica y los requerimientos del docente:
+
+| Colección | Campos Permitidos por el PDF | Justificación Textual en el PDF |
+|---|---|---|
+| `usuarios` | `nombreCompleto`, `documentoIdentificacion`, `correoElectronico`, `numeroTelefono`, `rol`, `direccion` (clientes). | *"Cada usuario deberá registrar nombre completo, documento de identificación, correo electrónico y número de teléfono. Los clientes también podrán registrar su dirección."* |
+| `bicicletas` | `propietarioId`, `marca`, `modelo`, `tipo`, `color`, `numeroSerie`, `caracteristicasComunes` (`tamanoMarco`, `material`, `tamanoRueda`, `tipoFrenos`, `transmision`), `especificacionesTipo` (`suspension`, `recorrido` para montaña; `bateria`, `motor` para eléctrica). | *"Cada bicicleta deberá incluir un identificador único, propietario, marca, modelo, tipo, color y número de serie cuando esté disponible... características comunes... y variables según el tipo."* |
+| `catalogo_servicios` | `nombre`, `categoria`, `descripcion`, `duracionEstimada`, `precioReferencia`, `tareasHabituales`, `recomendaciones`. | *"El taller contará con un catálogo de servicios que incluirá identificador, nombre, categoría, descripción, duración estimada y precio de referencia... tareas habituales y recomendaciones generales."* |
+| `citas` | `clienteId`, `bicicletaId`, `fecha`, `hora`, `motivo`, `problemasObservados`, `serviciosInteres`, `estado`, `observacionCambio`, `coordinadorId`. | *"Las citas deberán registrar identificador, cliente, bicicleta, fecha, hora, motivo de la visita y estado... problemas observados e indicar los servicios de su interés... observación sobre el cambio."* |
+| `ordenes_servicio` | `citaId`, `cliente`, `bicicleta`, `fechaRecepcion`, `fechaEstimadaEntrega`, `coordinadorResponsable`, `tecnicosAsignados`, `estado`, `recepcion`, `diagnostico`, `propuesta`, `ejecucion`, `historialCambiosEstado`, `revisionEntrega`, `entrega`, `garantias`, `valoracion`. | *"Cada orden de servicio deberá incluir un identificador único, cliente, bicicleta, fecha de recepción, fecha estimada de entrega, coordinador responsable, técnicos asignados y estado... problema reportado, condiciones observadas, accesorios entregados y fotografías..."* |
+
+---
+
+## 🏛 Arquitectura y Modelo Conceptual de Documentos
 
 ```mermaid
 erDiagram
@@ -50,14 +63,12 @@ erDiagram
 
     USUARIOS {
         ObjectId _id PK
-        string nombre
-        string documento UK
-        string correo UK
-        string telefono
+        string nombreCompleto
+        string documentoIdentificacion UK
+        string correoElectronico UK
+        string numeroTelefono
         string rol
-        string direccion
-        date fechaCreacion
-        bool activo
+        string direccion "Solo clientes"
     }
 
     BICICLETAS {
@@ -70,8 +81,6 @@ erDiagram
         string numeroSerie UK_sparse
         object caracteristicasComunes
         object especificacionesTipo
-        date fechaRegistro
-        bool activo
     }
 
     CATALOGO_SERVICIOS {
@@ -79,45 +88,45 @@ erDiagram
         string nombre
         string categoria
         string descripcion
-        int duracionEstimadaMinutos
+        string duracionEstimada
         decimal precioReferencia
         array tareasHabituales
         array recomendaciones
-        bool activo
     }
 
     CITAS {
         ObjectId _id PK
         ObjectId clienteId FK
         ObjectId bicicletaId FK
-        date fechaHora
+        string fecha
+        string hora
         string motivo
-        string problemasReportados
+        string problemasObservados
         array serviciosInteres
         string estado
-        string observaciones
+        string observacionCambio
         ObjectId coordinadorId FK
-        date fechaCreacion
     }
 
     ORDENES_SERVICIO {
         ObjectId _id PK
-        string numeroOrden UK
         ObjectId citaId FK
         object cliente "Snapshot inmutable"
         object bicicleta "Snapshot inmutable"
-        ObjectId coordinadorId FK
+        date fechaRecepcion
+        date fechaEstimadaEntrega
+        object coordinadorResponsable
         array tecnicosAsignados
         string estado
-        object recepcion "Embebido"
-        object diagnostico "Embebido con hallazgos"
-        object propuesta "Embebido con trabajos y aprobaciones"
-        object ejecucion "Embebido con repuestos utilizados"
-        array historialEstados "Embebido cronológico"
-        object revisionEntrega "Embebido checklist"
-        object entregaConfirmada "Embebido"
-        array garantias "Embebido con solicitudes"
-        object valoracion "Embebido feedback"
+        object recepcion "Problema, condiciones, accesorios, fotos"
+        object diagnostico "Componentes, condición, hallazgos, recomendaciones"
+        object propuesta "Trabajos, repuestos, autorizacionCliente"
+        object ejecucion "Trabajos realizados y repuestos utilizados"
+        array historialCambiosEstado "Fecha, usuarioResponsable, observación"
+        object revisionEntrega "Puntos, resultado, recomendaciones, aprobada"
+        object entrega "Fecha y confirmacionRecepcionCliente"
+        array garantias "Duración, condiciones, exclusiones y solicitudes"
+        object valoracion "Calificación numérica, comentarios, sugerencias"
     }
 ```
 
@@ -125,40 +134,16 @@ erDiagram
 
 ## ⚖ Justificación Técnica: Embeber vs. Referenciar
 
-La decisión entre normalización y desnormalización se fundamenta en los patrones de lectura y escritura del taller:
-
 | Relación | Decisión | Fundamento Arquitectónico |
 |---|---|---|
-| `Usuario` ➔ `Bicicletas` | **Referenciar** | Relación 1:N no acotada (un cliente regular puede poseer varias bicicletas a través de los años). Embeber causaría crecimiento descontrolado del documento del usuario. |
+| `Usuario` ➔ `Bicicletas` | **Referenciar** | Relación 1:N no acotada (un cliente regular puede poseer varias bicicletas a través de los años). |
 | `Bicicleta` ➔ `Citas` | **Referenciar** | Cardinalidad abierta. Las citas tienen un ciclo de vida previo a la orden y muchas no se concretan en servicios físicos. |
 | `Orden` ➔ `Cliente` | **Embeber (Snapshot)** | Conservar la foto exacta del cliente (nombre, teléfono, correo) al momento de recibir la bicicleta. Si el cliente actualiza su teléfono más tarde, la orden histórica conserva el canal real de contacto usado en esa atención. |
 | `Orden` ➔ `Bicicleta` | **Embeber (Snapshot)** | Congela las especificaciones y características físicas de la bicicleta al entrar al taller. |
 | `Orden` ➔ `Diagnóstico / Hallazgos` | **Embeber** | Cardinalidad 1:N acotada (1 a 10 hallazgos por bicicleta). Permite recuperar la hoja de diagnóstico en una única lectura de disco I/O. |
 | `Orden` ➔ `Propuesta de Trabajos` | **Embeber** | Permite registrar la aprobación/rechazo individualizada por ítem de forma transaccional a nivel de documento único (Single Document Transaction). |
 | `Orden` ➔ `Ejecución y Repuestos` | **Embeber** | **Inmutabilidad de precios históricos:** Se registran las cantidades y precios unitarios exactos cobrados en esa fecha, aislando la orden de variaciones futuras en el catálogo. |
-| `Orden` ➔ `Historial de Estados` | **Embeber** | Trazabilidad inalterable de cambios de estado (recibida, diagnóstico, ejecución, entrega) en un arreglo acotado (máximo 8 transiciones). |
-
----
-
-## 🧩 Patrones de Diseño NoSQL Implementados
-
-1. **Snapshot Pattern:** Empleado en `ordenes_servicio` para congelar información de clientes, bicicletas y precios unitarios de repuestos y mano de obra.
-2. **Polymorphic Pattern:** Implementado en `bicicletas` en el subdocumento `especificacionesTipo` para almacenar suspensión y recorrido en bicicletas de montaña, o motor y batería en bicicletas eléctricas, compartiendo un esquema común obligatorio.
-3. **Extended Reference Pattern:** Almacena el `usuarioId` y copia de los campos más consultados (`nombre`, `documento`, `telefono`) evitando operaciones `$lookup` recurrentes.
-4. **Bounded Embedded Array Pattern:** Utilizado en `hallazgos`, `trabajos`, `historialEstados`, `revisionEntrega.puntosVerificados` y `garantias`.
-5. **Partial Filter Unique Indexing Pattern:** Asegura las reglas críticas de negocio en la capa de datos: máximo una orden activa por bicicleta y prevención de citas duplicadas en el mismo horario.
-
----
-
-## 🗄 Estructura y Colecciones de la Base de Datos
-
-El sistema está conformado por **5 colecciones principales**:
-
-1. **`usuarios`**: Gestión de accesos con 4 roles (`cliente`, `tecnico`, `coordinador`, `administrador`).
-2. **`bicicletas`**: Registro de equipos con atributos comunes y polimorfismo según modalidad.
-3. **`catalogo_servicios`**: Servicios estandarizados de taller con duraciones estimadas y tarifas sugeridas.
-4. **`citas`**: Agenda de recepción con control anti-solapamiento.
-5. **`ordenes_servicio`**: Documento transaccional de ciclo de vida completo (recepción, diagnóstico, cotización, ejecución, control de calidad, entrega, garantías y valoración).
+| `Orden` ➔ `Historial de Cambios de Estado` | **Embeber** | Trazabilidad inalterable de cambios de estado en un arreglo acotado (máximo 8 transiciones). |
 
 ---
 
@@ -167,42 +152,11 @@ El sistema está conformado por **5 colecciones principales**:
 Todos los esquemas de validación se encuentran implementados con nivel `strict` y acción `error` en el script:
 [`scripts/01_schema_validation.js`](scripts/01_schema_validation.js)
 
-### Ejemplo: Validación Polimórfica en `bicicletas`
-```javascript
-db.createCollection("bicicletas", {
-  validator: {
-    $jsonSchema: {
-      bsonType: "object",
-      required: ["propietarioId", "marca", "modelo", "tipo", "color", "caracteristicasComunes", "fechaRegistro"],
-      properties: {
-        tipo: { enum: ["urbana", "ruta", "montaña", "eléctrica"] },
-        caracteristicasComunes: {
-          bsonType: "object",
-          required: ["tamanoMarco", "material", "tamanoRueda", "tipoFrenos", "transmision"]
-        },
-        especificacionesTipo: {
-          bsonType: "object",
-          properties: {
-            suspension: { bsonType: "string" },
-            recorrido: { bsonType: "string" },
-            bateria: { bsonType: "string" },
-            motor: { bsonType: "string" }
-          }
-        }
-      }
-    }
-  }
-});
-```
-
 ---
 
 ## 🔒 Reglas de Negocio e Integridad en MongoDB
 
-Las dos reglas más críticas del taller se resuelven a nivel de motor de base de datos mediante índices únicos parciales:
-
 ### Regla 1: Máximo una orden activa por bicicleta simultáneamente
-Una bicicleta puede tener múltiples órdenes a lo largo de los meses, pero ninguna puede tener dos órdenes simultáneas en proceso:
 ```javascript
 db.ordenes_servicio.createIndex(
   { "bicicleta.bicicletaId": 1 },
@@ -210,7 +164,13 @@ db.ordenes_servicio.createIndex(
     unique: true,
     partialFilterExpression: {
       estado: {
-        $in: ["recibida", "en_diagnostico", "pendiente_autorizacion", "en_ejecucion", "lista_para_entrega"]
+        $in: [
+          "recibida",
+          "en diagnóstico",
+          "pendiente de autorización",
+          "en ejecución",
+          "lista para entrega"
+        ]
       }
     },
     name: "idx_bicicleta_orden_activa_unica"
@@ -219,10 +179,9 @@ db.ordenes_servicio.createIndex(
 ```
 
 ### Regla 2: Impedir citas activas duplicadas en el mismo horario
-Evita colisiones de agendamiento para una misma bicicleta:
 ```javascript
 db.citas.createIndex(
-  { bicicletaId: 1, fechaHora: 1 },
+  { bicicletaId: 1, fecha: 1, hora: 1 },
   {
     unique: true,
     partialFilterExpression: {
@@ -241,37 +200,40 @@ db.citas.createIndex(
 proyecto-bd2-taller-bicicletas/
 ├── README.md                              # Documentación general y técnica de la Entrega 1
 ├── model/
-│   └── ProyectoBD.hck.json                # Modelo ERD y esquemas completos para Hackolade v8.3+
+│   ├── ProyectoBD.hck.json                # Proyecto nativo para Hackolade (File > Open)
+│   ├── schemas/                           # Esquemas individuales para Reverse Engineer > JSON Schema
+│   │   ├── usuarios.schema.json
+│   │   ├── bicicletas.schema.json
+│   │   ├── catalogo_servicios.schema.json
+│   │   ├── citas.schema.json
+│   │   └── ordenes_servicio.schema.json
+│   └── samples/                           # Documentos individuales para Reverse Engineer > JSON files
+│       ├── usuarios.sample.json
+│       ├── bicicletas.sample.json
+│       ├── catalogo_servicios.sample.json
+│       ├── citas.sample.json
+│       └── ordenes_servicio.sample.json
 ├── docs/
 │   ├── 01_modelo_conceptual.md            # Diagramas Mermaid y definición conceptual
 │   ├── 02_justificacion_patrones_nosql.md # Sustento de Embeber vs. Referenciar y patrones NoSQL
-│   └── 03_diccionario_datos.md            # Diccionario completo de campos, tipos BSON y restricciones
+│   └── 03_diccionario_datos.md            # Diccionario completo de campos según el PDF
 └── scripts/
     ├── 01_schema_validation.js            # Creación de colecciones con $jsonSchema estricto
     ├── 02_indexes.js                      # Creación de índices y reglas de negocio parciales
-    ├── 03_seed_data.js                    # Datos de prueba realistas para verificación inmediata
-    └── update_hackolade_model.js          # Utilidad Node.js para sincronización con Hackolade
+    └── 03_seed_data.js                    # Datos de prueba realistas fieles al PDF
 ```
 
 ---
 
-## 🚀 Instrucciones de Despliegue y Ejecución
+## 🚀 Instrucciones de Despliegue e Importación en Hackolade
 
-### 1. Visualización del Modelo en Hackolade
+### Opción A: Abrir el Modelo Completo en Hackolade
 1. Abrir **Hackolade**.
-2. Seleccionar `File` ➔ `Open` y cargar el archivo [`model/ProyectoBD.hck.json`](model/ProyectoBD.hck.json).
-3. Podrá visualizar el diagrama de entidades, las 5 colecciones completas y sus propiedades anidadas.
+2. Ir a `File` ➔ `Open`.
+3. Seleccionar el archivo [`model/ProyectoBD.hck.json`](model/ProyectoBD.hck.json).
+4. El diagrama ERD cargará automáticamente con las 5 colecciones completas y sus relaciones.
 
-### 2. Ejecución en MongoDB (mongosh o MongoDB Compass)
-Conectarse a una instancia local o cluster de MongoDB Atlas:
-
-```bash
-# 1. Crear las colecciones con Schema Validation
-mongosh "mongodb://localhost:27017" scripts/01_schema_validation.js
-
-# 2. Aplicar los índices y restricciones de negocio
-mongosh "mongodb://localhost:27017" scripts/02_indexes.js
-
-# 3. Poblar la base de datos con datos de prueba
-mongosh "mongodb://localhost:27017" scripts/03_seed_data.js
-```
+### Opción B: Importar Colección por Colección con Reverse Engineer
+1. Ir a `Tools` ➔ `Reverse Engineer`.
+2. Seleccionar **from JSON Schema** (o **from JSON files**).
+3. Seleccionar los archivos de la carpeta [`model/schemas/`](model/schemas/) (o [`model/samples/`](model/samples/)) uno por uno para crear cada colección individualmente.

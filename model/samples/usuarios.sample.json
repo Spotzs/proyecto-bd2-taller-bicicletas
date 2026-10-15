@@ -1,24 +1,27 @@
 [
   {
     "_id": "652f0fa5e4b02b9a87654321",
-    "nombre": "Carlos Andrés Echeverry",
-    "documento": "1144123456",
-    "correo": "carlos.echeverry@uao.edu.co",
-    "telefono": "3154879621",
+    "nombreCompleto": "Carlos Andrés Echeverry",
+    "documentoIdentificacion": "1144123456",
+    "correoElectronico": "carlos.echeverry@uao.edu.co",
+    "numeroTelefono": "3154879621",
     "rol": "cliente",
-    "direccion": "Carrera 100 # 16-20, Ciudad Jardín, Cali",
-    "fechaCreacion": "2026-01-15T09:30:00Z",
-    "activo": true
+    "direccion": "Carrera 100 # 16-20, Ciudad Jardín, Cali"
   },
   {
     "_id": "652f0fa5e4b02b9a87654322",
-    "nombre": "Jhonatan Riascos Mina",
-    "documento": "16789452",
-    "correo": "jhonatan.tecnico@tallercycle.com",
-    "telefono": "3006549871",
-    "rol": "tecnico",
-    "direccion": "Barrio San Antonio, Cali",
-    "fechaCreacion": "2025-11-01T08:00:00Z",
-    "activo": true
+    "nombreCompleto": "Jhonatan Riascos Mina",
+    "documentoIdentificacion": "16789452",
+    "correoElectronico": "jhonatan.tecnico@tallercycle.com",
+    "numeroTelefono": "3006549871",
+    "rol": "tecnico"
+  },
+  {
+    "_id": "652f0fa5e4b02b9a87654323",
+    "nombreCompleto": "Ingrid Marín Perea",
+    "documentoIdentificacion": "31987456",
+    "correoElectronico": "ingrid.coordinadora@tallercycle.com",
+    "numeroTelefono": "3103216549",
+    "rol": "coordinador"
   }
 ]

@@ -3,16 +3,16 @@
     "_id": "652f12e0e4b02b9a77889900",
     "clienteId": "652f0fa5e4b02b9a87654321",
     "bicicletaId": "652f10b8e4b02b9a12345678",
-    "fechaHora": "2026-10-15T09:00:00Z",
+    "fecha": "2026-10-15",
+    "hora": "09:00",
     "motivo": "Revisión pre-competencia y purga de frenos",
-    "problemasReportados": "Freno trasero esponjoso y pérdida de tacto",
+    "problemasObservados": "Pérdida de potencia en freno trasero",
     "serviciosInteres": [
-      "Purga de Frenos Hidráulicos",
-      "Mantenimiento General Preventivo"
+      "frenos",
+      "mantenimiento preventivo"
     ],
     "estado": "atendida",
-    "observaciones": "Cita cumplida, bicicleta recibida y orden generada",
-    "coordinadorId": "652f0fa5e4b02b9a87654323",
-    "fechaCreacion": "2026-10-13T11:00:00Z"
+    "observacionCambio": "Se adelantó 15 minutos por disponibilidad de banco de trabajo",
+    "coordinadorId": "652f0fa5e4b02b9a87654323"
   }
 ]

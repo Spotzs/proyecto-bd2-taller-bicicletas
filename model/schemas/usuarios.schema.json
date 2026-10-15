@@ -3,35 +3,34 @@
   "title": "usuarios",
   "type": "object",
   "required": [
-    "nombre",
-    "documento",
-    "correo",
-    "telefono",
-    "rol",
-    "fechaCreacion",
-    "activo"
+    "nombreCompleto",
+    "documentoIdentificacion",
+    "correoElectronico",
+    "numeroTelefono",
+    "rol"
   ],
   "properties": {
     "_id": {
       "type": "string",
       "pattern": "^[0-9a-fA-F]{24}$",
-      "description": "ObjectId de MongoDB"
+      "description": "Identificador único"
     },
-    "nombre": {
+    "nombreCompleto": {
       "type": "string",
-      "minLength": 3,
-      "maxLength": 120
+      "description": "Nombre completo del usuario"
     },
-    "documento": {
+    "documentoIdentificacion": {
       "type": "string",
-      "pattern": "^[0-9A-Za-z-]{5,20}$"
+      "description": "Documento de identificación"
     },
-    "correo": {
+    "correoElectronico": {
       "type": "string",
-      "format": "email"
+      "format": "email",
+      "description": "Correo electrónico"
     },
-    "telefono": {
-      "type": "string"
+    "numeroTelefono": {
+      "type": "string",
+      "description": "Número de teléfono"
     },
     "rol": {
       "type": "string",
@@ -40,17 +39,12 @@
         "tecnico",
         "coordinador",
         "administrador"
-      ]
+      ],
+      "description": "Uno de los cuatro roles del sistema"
     },
     "direccion": {
-      "type": "string"
-    },
-    "fechaCreacion": {
       "type": "string",
-      "format": "date-time"
-    },
-    "activo": {
-      "type": "boolean"
+      "description": "Dirección registrada por clientes"
     }
   }
 }

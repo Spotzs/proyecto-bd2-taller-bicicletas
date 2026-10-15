@@ -11,15 +11,13 @@
       "tamanoMarco": "M",
       "material": "Aluminio M5",
       "tamanoRueda": "29\"",
-      "tipoFrenos": "Disco Hidráulico SRAM G2 R 4 Pistones",
+      "tipoFrenos": "Disco Hidráulico SRAM G2 R",
       "transmision": "SRAM NX Eagle 1x12"
     },
     "especificacionesTipo": {
-      "suspension": "Horquilla FOX FLOAT 34 Rhythm y Shock FOX FLOAT DPS Performance",
-      "recorrido": "140mm delantero / 130mm trasero"
-    },
-    "fechaRegistro": "2026-01-20T10:00:00Z",
-    "activo": true
+      "suspension": "Horquilla FOX FLOAT 34 Rhythm",
+      "recorrido": "140mm"
+    }
   },
   {
     "_id": "652f10b8e4b02b9a12345679",
@@ -27,20 +25,18 @@
     "marca": "Trek",
     "modelo": "Powerfly 4 Gen 4",
     "tipo": "eléctrica",
-    "color": "Gris Titanio / Amarillo Flúor",
+    "color": "Gris Titanio",
     "numeroSerie": "WTU320C98541L",
     "caracteristicasComunes": {
       "tamanoMarco": "S",
       "material": "Aluminio Alpha Platinum",
       "tamanoRueda": "27.5\"",
-      "tipoFrenos": "Disco Hidráulico Tektro HD-M275",
-      "transmision": "Shimano Deore M4100 1x10"
+      "tipoFrenos": "Disco Hidráulico Tektro",
+      "transmision": "Shimano Deore 1x10"
     },
     "especificacionesTipo": {
       "bateria": "Bosch PowerTube 625Wh",
       "motor": "Bosch Performance CX 250W"
-    },
-    "fechaRegistro": "2026-02-12T16:00:00Z",
-    "activo": true
+    }
   }
 ]

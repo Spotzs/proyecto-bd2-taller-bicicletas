@@ -8,25 +8,26 @@
     "modelo",
     "tipo",
     "color",
-    "caracteristicasComunes",
-    "fechaRegistro",
-    "activo"
+    "caracteristicasComunes"
   ],
   "properties": {
     "_id": {
       "type": "string",
-      "pattern": "^[0-9a-fA-F]{24}$"
+      "pattern": "^[0-9a-fA-F]{24}$",
+      "description": "Identificador único"
     },
     "propietarioId": {
       "type": "string",
       "pattern": "^[0-9a-fA-F]{24}$",
-      "description": "Referencia a usuarios._id"
+      "description": "Propietario de la bicicleta"
     },
     "marca": {
-      "type": "string"
+      "type": "string",
+      "description": "Marca"
     },
     "modelo": {
-      "type": "string"
+      "type": "string",
+      "description": "Modelo"
     },
     "tipo": {
       "type": "string",
@@ -35,16 +36,19 @@
         "ruta",
         "montaña",
         "eléctrica"
-      ]
+      ],
+      "description": "Tipo de bicicleta"
     },
     "color": {
-      "type": "string"
+      "type": "string",
+      "description": "Color"
     },
     "numeroSerie": {
       "type": [
         "string",
         "null"
-      ]
+      ],
+      "description": "Número de serie cuando esté disponible"
     },
     "caracteristicasComunes": {
       "type": "object",
@@ -55,47 +59,51 @@
         "tipoFrenos",
         "transmision"
       ],
+      "description": "Características técnicas comunes",
       "properties": {
         "tamanoMarco": {
-          "type": "string"
+          "type": "string",
+          "description": "Tamaño del marco"
         },
         "material": {
-          "type": "string"
+          "type": "string",
+          "description": "Material"
         },
         "tamanoRueda": {
-          "type": "string"
+          "type": "string",
+          "description": "Tamaño de rueda"
         },
         "tipoFrenos": {
-          "type": "string"
+          "type": "string",
+          "description": "Tipo de frenos"
         },
         "transmision": {
-          "type": "string"
+          "type": "string",
+          "description": "Transmisión"
         }
       }
     },
     "especificacionesTipo": {
       "type": "object",
+      "description": "Características técnicas que varían según el tipo",
       "properties": {
         "suspension": {
-          "type": "string"
+          "type": "string",
+          "description": "Suspensión (montaña)"
         },
         "recorrido": {
-          "type": "string"
+          "type": "string",
+          "description": "Recorrido (montaña)"
         },
         "bateria": {
-          "type": "string"
+          "type": "string",
+          "description": "Batería (eléctrica)"
         },
         "motor": {
-          "type": "string"
+          "type": "string",
+          "description": "Motor (eléctrica)"
         }
       }
-    },
-    "fechaRegistro": {
-      "type": "string",
-      "format": "date-time"
-    },
-    "activo": {
-      "type": "boolean"
     }
   }
 }

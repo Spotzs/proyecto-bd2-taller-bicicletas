@@ -2,492 +2,268 @@
   "modelName": "New Model",
   "collections": [
     {
-      "collectionName": "Usuarios",
+      "collectionName": "usuarios",
       "type": "object",
       "properties": [
         {
           "name": "_id",
-          "hackoladeMeta": {},
-          "isActivated": true,
           "type": "objectId",
-          "GUID": "51279663-3627-4274-a18a-3e5dcfbf5286",
           "primaryKey": true,
-          "error": {}
+          "isActivated": true,
+          "GUID": "02ef148b-6b2d-4124-af0e-57f62d27efd9"
         },
         {
-          "name": "nombre",
-          "hackoladeMeta": {},
-          "isActivated": true,
+          "name": "nombreCompleto",
           "type": "string",
-          "GUID": "3f5d666f-ee74-4aad-84be-556fffe88414",
           "required": true,
-          "error": {}
+          "isActivated": true,
+          "GUID": "09b2e91e-a40c-47f5-8ae6-b8eb6b3d4527"
         },
         {
-          "name": "documento",
-          "hackoladeMeta": {},
-          "isActivated": true,
+          "name": "documentoIdentificacion",
           "type": "string",
-          "GUID": "9d615c84-af8f-47ff-9641-0c60270a7544",
           "required": true,
-          "error": {}
+          "isActivated": true,
+          "GUID": "a6923c40-1254-4374-95bc-5a518ab91592"
         },
         {
-          "name": "correo",
-          "hackoladeMeta": {},
-          "isActivated": true,
+          "name": "correoElectronico",
           "type": "string",
-          "GUID": "8f1aa51c-7cc0-44c9-8de9-511e2273b409",
           "required": true,
-          "error": {}
+          "isActivated": true,
+          "GUID": "6eb7d67f-c48b-4ed5-803d-b0e118acd867"
         },
         {
-          "name": "telefono",
-          "hackoladeMeta": {},
-          "isActivated": true,
+          "name": "numeroTelefono",
           "type": "string",
-          "GUID": "e44e9c7e-57e0-460d-bb1a-ac9ce0376d9d",
-          "required": true
+          "required": true,
+          "isActivated": true,
+          "GUID": "f68a7b05-04f5-4864-bf01-2fbe903edd92"
         },
         {
           "name": "rol",
-          "hackoladeMeta": {},
-          "isActivated": true,
           "type": "string",
-          "GUID": "ba3df94e-b985-46cb-8019-7438a0c9655d",
           "required": true,
-          "error": {},
           "enum": [
             "cliente",
             "tecnico",
             "coordinador",
             "administrador"
-          ]
-        },
-        {
-          "name": "fechaCreacion",
-          "hackoladeMeta": {},
+          ],
           "isActivated": true,
-          "type": "date",
-          "primaryKey": false,
-          "GUID": "fe6519f9-abe1-4d54-9403-f9fba6d0e140",
-          "required": true,
-          "error": {}
+          "GUID": "f9d7ab6b-47d3-4197-9fb2-1c69c3ea8156"
         },
         {
           "name": "direccion",
-          "hackoladeMeta": {},
-          "isActivated": true,
           "type": "string",
-          "GUID": "1c0040b0-837a-4c77-a0fd-8656dadff545",
-          "error": {}
+          "required": false,
+          "isActivated": true,
+          "GUID": "ef75b4d2-2371-4c18-98e3-7115d7a460cc"
         }
       ],
       "definitions": {
         "type": "definitions",
         "properties": [],
-        "GUID": "3fbe7e3e-4fc3-4105-9ee8-85a96bbd8cc2"
+        "GUID": "987a2ed2-cdd3-4d26-90e9-84c20cd74017"
       },
       "isActivated": true,
       "additionalProperties": false,
-      "validationLevel": "Off",
-      "validationAction": "Warn",
+      "validationLevel": "Strict",
+      "validationAction": "Error",
       "storageEngineName": "WiredTiger",
-      "collectionUsers": [],
       "indexes": [],
       "collation": {},
       "sharding": {
         "unique": true,
         "collation": "null"
       },
-      "GUID": "9e8dad4d-5e95-465d-ba36-2d7839885fb1",
+      "GUID": "624d3f49-07a2-4ca6-b824-fe44478ad109",
       "bucketId": "179d16b8-c856-4729-8145-0abc01cdb028",
       "hackoladeMeta": {
         "validationErrors": {}
       }
     },
     {
-      "collectionName": "Bicicletas",
+      "collectionName": "bicicletas",
       "type": "object",
       "properties": [
         {
           "name": "_id",
-          "hackoladeMeta": {},
-          "isActivated": true,
           "type": "objectId",
-          "GUID": "5cad6d42-1f98-4249-be8e-09df092f8973",
           "primaryKey": true,
-          "error": {}
+          "isActivated": true,
+          "GUID": "642daac1-550b-4e66-b09c-b1a43ed54d15"
         },
         {
           "name": "propietarioId",
-          "hackoladeMeta": {},
-          "isActivated": true,
           "type": "objectId",
-          "GUID": "775a3830-daca-4811-9dd9-c3e696b6b6ff",
           "required": true,
-          "error": {}
+          "isActivated": true,
+          "GUID": "ae12e495-b963-4d86-a40e-ba97ce03d344"
         },
         {
           "name": "marca",
-          "hackoladeMeta": {},
-          "isActivated": true,
           "type": "string",
-          "GUID": "618a7a5b-1d7e-41f0-be11-c55636f9168c",
           "required": true,
-          "error": {}
+          "isActivated": true,
+          "GUID": "3d47d117-b7c5-44ca-b3b8-64d3d54b2d6c"
         },
         {
           "name": "modelo",
-          "hackoladeMeta": {},
-          "isActivated": true,
           "type": "string",
-          "GUID": "ef74b10d-8440-40c1-9156-d984bf3816cf",
           "required": true,
-          "error": {}
+          "isActivated": true,
+          "GUID": "71ad2032-6bd2-47fa-b58a-38937f3e3167"
+        },
+        {
+          "name": "tipo",
+          "type": "string",
+          "required": true,
+          "enum": [
+            "urbana",
+            "ruta",
+            "montaña",
+            "eléctrica"
+          ],
+          "isActivated": true,
+          "GUID": "32242e77-0f7b-4148-ae2e-febbdad84a38"
         },
         {
           "name": "color",
-          "hackoladeMeta": {},
-          "isActivated": true,
           "type": "string",
-          "GUID": "c338e7c5-6f0f-45d1-8e32-42da6aa48285",
           "required": true,
-          "error": {}
-        },
-        {
-          "name": "numero_serie",
-          "hackoladeMeta": {},
           "isActivated": true,
-          "type": "string",
-          "GUID": "c9ee3f01-614c-4bbe-a2ff-247d413c3249",
-          "error": {}
+          "GUID": "ed212931-0b1b-488b-b37f-7fc34e4cbeff"
         },
         {
-          "type": "choice",
+          "name": "numeroSerie",
+          "type": "string",
+          "required": false,
+          "isActivated": true,
+          "GUID": "850dfad0-c961-4cca-be73-24475b25a01a"
+        },
+        {
+          "name": "caracteristicasComunes",
+          "type": "document",
+          "required": true,
+          "isActivated": true,
+          "GUID": "615ebb55-7a1b-493b-880b-dd571e16707a",
           "properties": [
             {
-              "subschema": true,
+              "name": "tamanoMarco",
+              "type": "string",
+              "required": true,
               "isActivated": true,
-              "type": "document",
-              "GUID": "07878c93-b213-452c-96f0-d47b974aa868",
-              "properties": [
-                {
-                  "name": "suspension",
-                  "hackoladeMeta": {},
-                  "isActivated": true,
-                  "type": "string",
-                  "GUID": "0841b849-627d-4156-991e-a262680a5e79",
-                  "required": true,
-                  "error": {}
-                },
-                {
-                  "name": "recorrido",
-                  "hackoladeMeta": {},
-                  "isActivated": true,
-                  "type": "string",
-                  "GUID": "3e724c4c-1af6-4842-9f3d-ac98beb01b98",
-                  "required": true,
-                  "error": {}
-                }
-              ],
-              "additionalProperties": true,
-              "displayName": "montaña",
-              "error": {}
+              "GUID": "3b7fca3a-6ac7-4203-8abf-2b0a26c075b5"
             },
             {
-              "subschema": true,
-              "isActivated": true,
-              "type": "document",
-              "GUID": "c676186e-5caa-401a-8dba-b8fbd634ce7d",
-              "properties": [
-                {
-                  "name": "bateria",
-                  "hackoladeMeta": {},
-                  "isActivated": true,
-                  "type": "string",
-                  "GUID": "54a9c965-4825-412d-8793-cfdf0d8cfff7",
-                  "required": true,
-                  "error": {}
-                },
-                {
-                  "name": "motor",
-                  "hackoladeMeta": {},
-                  "isActivated": true,
-                  "type": "string",
-                  "GUID": "6c1f85ee-56af-4848-b031-1548d6dfdc49",
-                  "required": true,
-                  "error": {}
-                }
-              ],
-              "additionalProperties": true,
-              "displayName": "electrica",
-              "error": {}
-            }
-          ],
-          "isActivated": true,
-          "choice": "oneOf",
-          "GUID": "97d483a2-6109-4519-95af-4c4f1f81f434"
-        },
-        {
-          "name": "tamañoMarco",
-          "hackoladeMeta": {},
-          "isActivated": true,
-          "type": "string",
-          "GUID": "43a594c6-f5e4-491e-b4ce-cb63041702ec",
-          "required": true,
-          "error": {}
-        },
-        {
-          "name": "material",
-          "hackoladeMeta": {},
-          "isActivated": true,
-          "type": "string",
-          "GUID": "12304b0d-e97e-4231-9e9a-765ea3839ca3",
-          "required": true,
-          "error": {}
-        },
-        {
-          "name": "tamañoRueda",
-          "hackoladeMeta": {},
-          "isActivated": true,
-          "type": "string",
-          "GUID": "5b6bfd51-c1de-4518-af8d-42e931c4151f",
-          "required": true,
-          "error": {}
-        },
-        {
-          "name": "tipoFrenos",
-          "hackoladeMeta": {},
-          "isActivated": true,
-          "type": "string",
-          "GUID": "46ed8114-cc14-4afe-b217-93b2d4c7b2ea",
-          "required": true,
-          "error": {}
-        },
-        {
-          "name": "transmision",
-          "hackoladeMeta": {},
-          "isActivated": true,
-          "type": "string",
-          "GUID": "5f6e7533-26bc-40c9-8bd9-9ff00cbb3dc4",
-          "required": true,
-          "error": {}
-        }
-      ],
-      "definitions": {
-        "type": "definitions",
-        "properties": [],
-        "GUID": "f8fd738a-dee5-4e92-8b77-4e717fac3fbf"
-      },
-      "isActivated": true,
-      "additionalProperties": true,
-      "validationLevel": "Off",
-      "validationAction": "Warn",
-      "storageEngineName": "WiredTiger",
-      "collectionUsers": [],
-      "indexes": [],
-      "collation": {},
-      "sharding": {
-        "unique": true,
-        "collation": "null"
-      },
-      "GUID": "d02658e8-d14f-4487-8295-57452d9a9a75",
-      "bucketId": "179d16b8-c856-4729-8145-0abc01cdb028",
-      "hackoladeMeta": {
-        "validationErrors": {}
-      },
-      "error": {}
-    },
-    {
-      "collectionName": "citas",
-      "type": "object",
-      "properties": [
-        {
-          "name": "_id",
-          "hackoladeMeta": {},
-          "isActivated": true,
-          "type": "objectId",
-          "error": {},
-          "primaryKey": true,
-          "GUID": "9ec2e544-d4f0-407d-ad71-b2c116c33d69"
-        },
-        {
-          "name": "clienteId",
-          "hackoladeMeta": {},
-          "isActivated": true,
-          "type": "objectId",
-          "GUID": "c0a40abf-d5ad-463d-adc6-19ceef7d59bf",
-          "required": true,
-          "error": {}
-        },
-        {
-          "name": "bicicletaId",
-          "hackoladeMeta": {},
-          "isActivated": true,
-          "type": "objectId",
-          "GUID": "6ed816ee-ba64-45aa-876e-c776788667b3",
-          "required": true,
-          "error": {}
-        },
-        {
-          "name": "fechaHora",
-          "hackoladeMeta": {},
-          "isActivated": true,
-          "type": "date",
-          "primaryKey": false,
-          "GUID": "e048c9fb-86a4-441e-8c7c-eeae6be7bd44",
-          "required": true,
-          "error": {}
-        },
-        {
-          "name": "motivo",
-          "hackoladeMeta": {},
-          "isActivated": true,
-          "type": "string",
-          "GUID": "ecc9c5aa-9c3b-4ab0-97a1-26d38a374571",
-          "required": true,
-          "error": {}
-        },
-        {
-          "name": "ProblemasReportados",
-          "hackoladeMeta": {},
-          "isActivated": true,
-          "type": "string",
-          "GUID": "ab905ee1-0228-47cf-99cf-568d2942164b",
-          "error": {}
-        },
-        {
-          "name": "serviciosInteres",
-          "hackoladeMeta": {},
-          "isActivated": true,
-          "type": "array",
-          "properties": [
-            {
-              "hackoladeMeta": {},
-              "isActivated": true,
+              "name": "material",
               "type": "string",
-              "GUID": "5e07b97e-808b-43c4-8684-1a0bda07db2d",
-              "arrayItem": true
+              "required": true,
+              "isActivated": true,
+              "GUID": "398b4161-3da6-4dc7-a691-59eaba708f3e"
+            },
+            {
+              "name": "tamanoRueda",
+              "type": "string",
+              "required": true,
+              "isActivated": true,
+              "GUID": "99f09b2e-785e-4cc1-93fc-e7cc316c827a"
+            },
+            {
+              "name": "tipoFrenos",
+              "type": "string",
+              "required": true,
+              "isActivated": true,
+              "GUID": "a43fa8e0-e42d-4a2a-aa9c-364c35cfedf8"
+            },
+            {
+              "name": "transmision",
+              "type": "string",
+              "required": true,
+              "isActivated": true,
+              "GUID": "3ac0b39e-f873-4425-86d0-d5b9db080aa6"
             }
-          ],
-          "additionalItems": true,
-          "error": {},
-          "GUID": "945fdfa7-bf4a-42af-86a1-9ac6ddaf5535"
-        },
-        {
-          "name": "estado",
-          "hackoladeMeta": {},
-          "isActivated": true,
-          "type": "string",
-          "GUID": "c4b0b9b3-f66d-4c3d-9516-97b9aaf15242",
-          "required": true,
-          "error": {
-            "enum": false,
-            "enums": [
-              false,
-              false,
-              false,
-              false
-            ]
-          },
-          "enum": [
-            "solicitada",
-            "confirmada",
-            "atendida",
-            "cancelada"
           ]
         },
         {
-          "name": "observaciones",
-          "hackoladeMeta": {},
+          "name": "especificacionesTipo",
+          "type": "document",
+          "required": false,
           "isActivated": true,
-          "type": "string",
-          "GUID": "5e7eb079-a944-44ff-a408-723aed0876b9",
-          "error": {}
-        },
-        {
-          "name": "coordinadorId",
-          "hackoladeMeta": {},
-          "isActivated": true,
-          "type": "objectId",
-          "error": {},
-          "GUID": "b91eba13-bb40-49cc-892e-f76a401928ec"
-        },
-        {
-          "name": "fechaCreacion",
-          "hackoladeMeta": {},
-          "isActivated": true,
-          "type": "string",
-          "GUID": "9f2667cc-e0c8-4e86-a9a5-2385639bd30d",
-          "required": true,
-          "error": {}
+          "GUID": "91e45efe-8116-4f21-aa87-e4513a01a821",
+          "properties": [
+            {
+              "name": "suspension",
+              "type": "string",
+              "isActivated": true,
+              "GUID": "17b37065-f0b6-4f5c-93f1-a4ac18281c92"
+            },
+            {
+              "name": "recorrido",
+              "type": "string",
+              "isActivated": true,
+              "GUID": "47f2fca0-c023-4f26-aa2a-9f0f0d1d4108"
+            },
+            {
+              "name": "bateria",
+              "type": "string",
+              "isActivated": true,
+              "GUID": "a13e662b-71ea-40b9-b345-3db5ee4805b0"
+            },
+            {
+              "name": "motor",
+              "type": "string",
+              "isActivated": true,
+              "GUID": "954a61ec-d7c1-4b41-91eb-cb59320745b3"
+            }
+          ]
         }
       ],
       "definitions": {
         "type": "definitions",
         "properties": [],
-        "GUID": "d604a3ca-aa12-4f8a-b5c6-b4961af55a1f"
+        "GUID": "fe9337a8-7e55-44b6-99bd-f53d4b04f57a"
       },
       "isActivated": true,
       "additionalProperties": false,
-      "validationLevel": "Off",
-      "validationAction": "Warn",
+      "validationLevel": "Strict",
+      "validationAction": "Error",
       "storageEngineName": "WiredTiger",
-      "collectionUsers": [],
       "indexes": [],
       "collation": {},
       "sharding": {
         "unique": true,
         "collation": "null"
       },
-      "GUID": "7fa25990-4d58-4326-b6c1-eedcef5e404a",
+      "GUID": "a86d5ad3-0400-416a-82b3-d8f1324fbc9f",
       "bucketId": "179d16b8-c856-4729-8145-0abc01cdb028",
       "hackoladeMeta": {
         "validationErrors": {}
       }
     },
     {
-      "collectionName": "Catalogo",
+      "collectionName": "catalogo_servicios",
       "type": "object",
       "properties": [
         {
           "name": "_id",
-          "hackoladeMeta": {},
-          "isActivated": true,
           "type": "objectId",
-          "GUID": "02467557-038e-4c09-a2ad-e9414d0ee1c6",
           "primaryKey": true,
-          "required": false,
-          "error": {}
+          "isActivated": true,
+          "GUID": "cc9ef255-8171-4d91-a013-7ff7d4864639"
         },
         {
           "name": "nombre",
-          "hackoladeMeta": {},
-          "isActivated": true,
           "type": "string",
-          "GUID": "26ff3aa3-a76e-47bc-a476-af07d637e5c2",
           "required": true,
-          "error": {}
+          "isActivated": true,
+          "GUID": "79d6eacf-7fe5-4170-bd4b-9d23ba9cca8a"
         },
         {
           "name": "categoria",
-          "hackoladeMeta": {},
-          "isActivated": true,
           "type": "string",
-          "GUID": "de49426b-5461-4b1d-84d0-d3c408172079",
           "required": true,
-          "error": {
-            "enum": false,
-            "enums": [
-              false,
-              false,
-              false,
-              false,
-              false,
-              false
-            ]
-          },
           "enum": [
             "mantenimiento preventivo",
             "frenos",
@@ -495,91 +271,192 @@
             "ruedas",
             "suspensión",
             "componentes eléctricos"
-          ]
+          ],
+          "isActivated": true,
+          "GUID": "9c5adc39-fc49-4898-8416-8c51636d066b"
         },
         {
           "name": "descripcion",
-          "hackoladeMeta": {},
-          "isActivated": true,
           "type": "string",
-          "GUID": "e62478a2-b4fa-46d9-b7e3-c32a9c9d2b62",
           "required": true,
-          "error": {}
+          "isActivated": true,
+          "GUID": "a235810a-32da-4b8d-bd7b-239a0d8d54b1"
         },
         {
           "name": "duracionEstimada",
-          "hackoladeMeta": {},
-          "isActivated": true,
           "type": "string",
-          "GUID": "7fd06741-c08f-436e-85bb-2c14a4989522",
           "required": true,
-          "error": {}
+          "isActivated": true,
+          "GUID": "3301aab5-8382-40b0-beab-b5f4ebc12a41"
         },
         {
           "name": "precioReferencia",
-          "hackoladeMeta": {},
-          "isActivated": true,
           "type": "numeric",
-          "GUID": "6c1fcf98-6259-4dd6-ad5d-ab05d97a7e9e",
           "mode": "decimal128",
           "required": true,
-          "error": {}
+          "isActivated": true,
+          "GUID": "fa2ec12d-5cde-4940-9330-18cf4fd47616"
         },
         {
           "name": "tareasHabituales",
-          "hackoladeMeta": {},
-          "isActivated": true,
           "type": "array",
+          "isActivated": true,
+          "GUID": "32bbec52-c88b-41d1-a04e-69358bd6afea",
           "properties": [
             {
-              "hackoladeMeta": {},
-              "isActivated": true,
               "type": "string",
-              "GUID": "c386d54a-f7c6-4086-8abd-7b8f695f6b63",
-              "arrayItem": true
+              "arrayItem": true,
+              "isActivated": true,
+              "GUID": "dc739b15-0a88-4eb3-bf7a-75fafa65237e"
             }
-          ],
-          "additionalItems": true,
-          "error": {},
-          "GUID": "cefc99fd-43a1-43f5-8ab5-b64d03329f8d"
+          ]
         },
         {
           "name": "recomendaciones",
-          "hackoladeMeta": {},
-          "isActivated": true,
           "type": "array",
+          "isActivated": true,
+          "GUID": "5418164d-2eb5-4938-b979-8e3df6427501",
           "properties": [
             {
-              "hackoladeMeta": {},
-              "isActivated": true,
               "type": "string",
-              "GUID": "056ff07c-10f0-40b0-86ee-9c4a36ae84aa",
-              "arrayItem": true
+              "arrayItem": true,
+              "isActivated": true,
+              "GUID": "f85f511c-ad96-4acb-9f67-770b2d109e5f"
             }
-          ],
-          "additionalItems": true,
-          "error": {},
-          "GUID": "e38d5b04-1935-4720-86e2-f66d04ede860"
+          ]
         }
       ],
       "definitions": {
         "type": "definitions",
         "properties": [],
-        "GUID": "3dbc7689-de18-45e9-aa94-99df9c5119a4"
+        "GUID": "e76ea371-5ec2-4f76-8438-f8229156a1a7"
       },
       "isActivated": true,
       "additionalProperties": false,
-      "validationLevel": "Off",
-      "validationAction": "Warn",
+      "validationLevel": "Strict",
+      "validationAction": "Error",
       "storageEngineName": "WiredTiger",
-      "collectionUsers": [],
       "indexes": [],
       "collation": {},
       "sharding": {
         "unique": true,
         "collation": "null"
       },
-      "GUID": "24bbbf55-448f-49bc-9937-40a33207e813",
+      "GUID": "672b4087-758c-482c-b1f5-27c2ae1ea854",
+      "bucketId": "179d16b8-c856-4729-8145-0abc01cdb028",
+      "hackoladeMeta": {
+        "validationErrors": {}
+      }
+    },
+    {
+      "collectionName": "citas",
+      "type": "object",
+      "properties": [
+        {
+          "name": "_id",
+          "type": "objectId",
+          "primaryKey": true,
+          "isActivated": true,
+          "GUID": "09abe19c-4a6d-4627-b652-01fd2095bb5f"
+        },
+        {
+          "name": "clienteId",
+          "type": "objectId",
+          "required": true,
+          "isActivated": true,
+          "GUID": "aa5904f8-fdcc-482d-bc47-425fd0887824"
+        },
+        {
+          "name": "bicicletaId",
+          "type": "objectId",
+          "required": true,
+          "isActivated": true,
+          "GUID": "64c868c8-d253-406e-9f6b-c45e4347d4cb"
+        },
+        {
+          "name": "fecha",
+          "type": "string",
+          "required": true,
+          "isActivated": true,
+          "GUID": "fffd03c7-1b83-4947-81f5-d3ea42b4687f"
+        },
+        {
+          "name": "hora",
+          "type": "string",
+          "required": true,
+          "isActivated": true,
+          "GUID": "34ee016f-86e6-49e5-ba03-033eebe65314"
+        },
+        {
+          "name": "motivo",
+          "type": "string",
+          "required": true,
+          "isActivated": true,
+          "GUID": "07e9941d-3e79-43e7-980f-c650f0137c50"
+        },
+        {
+          "name": "problemasObservados",
+          "type": "string",
+          "isActivated": true,
+          "GUID": "59f8f7c6-dd96-4e61-a7cc-e7efd1db0af5"
+        },
+        {
+          "name": "serviciosInteres",
+          "type": "array",
+          "isActivated": true,
+          "GUID": "7ae58b98-bca7-4049-a14c-cec603b4b7dd",
+          "properties": [
+            {
+              "type": "string",
+              "arrayItem": true,
+              "isActivated": true,
+              "GUID": "d3df2fe3-acce-4ff2-a54d-7dbb40621e27"
+            }
+          ]
+        },
+        {
+          "name": "estado",
+          "type": "string",
+          "required": true,
+          "enum": [
+            "solicitada",
+            "confirmada",
+            "atendida",
+            "cancelada"
+          ],
+          "isActivated": true,
+          "GUID": "6e44f1df-8b0d-483c-bfca-7c9868af9f65"
+        },
+        {
+          "name": "observacionCambio",
+          "type": "string",
+          "isActivated": true,
+          "GUID": "c487f90a-fd55-4ec3-a28e-c141838b9196"
+        },
+        {
+          "name": "coordinadorId",
+          "type": "objectId",
+          "isActivated": true,
+          "GUID": "009682ca-26f4-46dc-a48a-0ba113aa4a07"
+        }
+      ],
+      "definitions": {
+        "type": "definitions",
+        "properties": [],
+        "GUID": "c37abbce-e0c7-4292-afb4-a52f8401565e"
+      },
+      "isActivated": true,
+      "additionalProperties": false,
+      "validationLevel": "Strict",
+      "validationAction": "Error",
+      "storageEngineName": "WiredTiger",
+      "indexes": [],
+      "collation": {},
+      "sharding": {
+        "unique": true,
+        "collation": "null"
+      },
+      "GUID": "b543dda5-bd1c-46a3-b140-569e46fb5681",
       "bucketId": "179d16b8-c856-4729-8145-0abc01cdb028",
       "hackoladeMeta": {
         "validationErrors": {}
@@ -594,69 +471,61 @@
           "type": "objectId",
           "primaryKey": true,
           "isActivated": true,
-          "GUID": "0e7e55ac-358d-4353-887b-d04367cbe98a"
-        },
-        {
-          "name": "numeroOrden",
-          "type": "string",
-          "required": true,
-          "isActivated": true,
-          "GUID": "5afa4751-81c2-421c-ac51-7c2243ac8167"
+          "GUID": "87164c27-7b18-4397-a7ab-86737588c3a7"
         },
         {
           "name": "citaId",
           "type": "objectId",
-          "required": false,
           "isActivated": true,
-          "GUID": "f1248f59-40c1-4933-9765-1a24d1af0ac4"
+          "GUID": "23327cf8-babf-48ab-bb76-4f2d0a126fcf"
         },
         {
           "name": "cliente",
           "type": "document",
           "required": true,
           "isActivated": true,
-          "GUID": "8863dc9b-9bb7-455b-a5ce-7514a3cf24fb",
+          "GUID": "d3a6a8c5-41f4-4aaa-b5ad-0ff79973a2b0",
           "properties": [
             {
               "name": "usuarioId",
               "type": "objectId",
               "required": true,
               "isActivated": true,
-              "GUID": "479153ec-3cb9-4640-8d5b-1a43dc7abdd4"
+              "GUID": "8d9f4b33-4331-4d90-ae62-a6966e17cfbb"
             },
             {
-              "name": "nombre",
+              "name": "nombreCompleto",
               "type": "string",
               "required": true,
               "isActivated": true,
-              "GUID": "2f45ef6f-6de5-4ba2-bea3-cd3e57b6feac"
+              "GUID": "c39fb29c-0bf3-4b9b-8623-03dc723e1ec2"
             },
             {
-              "name": "documento",
+              "name": "documentoIdentificacion",
               "type": "string",
               "required": true,
               "isActivated": true,
-              "GUID": "efcf2694-1c6b-4d15-81d1-d3856f8e3d63"
+              "GUID": "a56b512f-9823-4223-b03a-df604fb56388"
             },
             {
-              "name": "telefono",
+              "name": "numeroTelefono",
               "type": "string",
               "required": true,
               "isActivated": true,
-              "GUID": "4af53ea7-c314-42ac-84ed-ef71910cb999"
+              "GUID": "aa0f74fb-6f87-415c-badc-e4fd089f5695"
             },
             {
-              "name": "correo",
+              "name": "correoElectronico",
               "type": "string",
               "required": true,
               "isActivated": true,
-              "GUID": "1689bbb7-dd59-4fed-9897-d7aa8e9347e1"
+              "GUID": "d4f51409-dda3-46b8-8168-10992bdd5b8b"
             },
             {
               "name": "direccion",
               "type": "string",
               "isActivated": true,
-              "GUID": "bccdfb29-b91d-4f16-8f8f-d0a60473f0e2"
+              "GUID": "97825b84-8616-42f7-a36a-6ed0092554c8"
             }
           ]
         },
@@ -665,28 +534,28 @@
           "type": "document",
           "required": true,
           "isActivated": true,
-          "GUID": "d636b24c-eed3-402d-b21a-580ab782ef59",
+          "GUID": "199183d2-9a59-40f7-aac8-cc9cf360df52",
           "properties": [
             {
               "name": "bicicletaId",
               "type": "objectId",
               "required": true,
               "isActivated": true,
-              "GUID": "2a0e68d9-494e-40ee-a773-f036eafbb2d6"
+              "GUID": "90cfee69-963d-47ab-81c0-009de9156014"
             },
             {
               "name": "marca",
               "type": "string",
               "required": true,
               "isActivated": true,
-              "GUID": "28a71ec5-1929-4300-8e82-10f5d63f2ce9"
+              "GUID": "114d1c06-0de4-4a58-b7c1-533d811faf52"
             },
             {
               "name": "modelo",
               "type": "string",
               "required": true,
               "isActivated": true,
-              "GUID": "033c70ba-3618-4218-b993-5c09502414b1"
+              "GUID": "deec6074-1293-473d-adc7-71c8abd48d1e"
             },
             {
               "name": "tipo",
@@ -699,55 +568,86 @@
                 "eléctrica"
               ],
               "isActivated": true,
-              "GUID": "0f7bfa2d-0bc9-4f54-a640-8b58603e40fa"
+              "GUID": "a047328c-d914-4bff-ab5c-f57dcb5ec198"
             },
             {
               "name": "color",
               "type": "string",
               "required": true,
               "isActivated": true,
-              "GUID": "b7a5aae9-ca15-469f-a30a-5b80062f93f4"
+              "GUID": "5e06f067-f6af-4457-abeb-ebf986580866"
             },
             {
               "name": "numeroSerie",
               "type": "string",
               "isActivated": true,
-              "GUID": "72a76d29-c30a-430d-8e03-8728d18fb1d1"
+              "GUID": "8c9a8915-47ca-4b6b-8c0d-4b63c8787ea3"
             }
           ]
         },
         {
-          "name": "coordinadorId",
-          "type": "objectId",
-          "required": false,
+          "name": "fechaRecepcion",
+          "type": "date",
+          "required": true,
           "isActivated": true,
-          "GUID": "2dc17736-081e-45f8-bf81-b836d01ff668"
+          "GUID": "0e554f1e-0f54-48e3-a63f-48f6783f61f4"
+        },
+        {
+          "name": "fechaEstimadaEntrega",
+          "type": "date",
+          "required": true,
+          "isActivated": true,
+          "GUID": "3720937c-7b39-4514-b3d6-dd54ffcda255"
+        },
+        {
+          "name": "coordinadorResponsable",
+          "type": "document",
+          "required": true,
+          "isActivated": true,
+          "GUID": "dc3b86d7-ff8c-4368-91b6-a91ae46099e6",
+          "properties": [
+            {
+              "name": "coordinadorId",
+              "type": "objectId",
+              "required": true,
+              "isActivated": true,
+              "GUID": "ef05c63a-4748-44a5-bce9-d15cb968c6b1"
+            },
+            {
+              "name": "nombreCompleto",
+              "type": "string",
+              "required": true,
+              "isActivated": true,
+              "GUID": "9a4ba8e8-fb7c-433c-90a9-614c0981ca96"
+            }
+          ]
         },
         {
           "name": "tecnicosAsignados",
           "type": "array",
+          "required": true,
           "isActivated": true,
-          "GUID": "6daa73c8-7626-4c39-97d1-2f1163aea17d",
+          "GUID": "37e3558e-fe2c-4815-8b70-bad86f401d47",
           "properties": [
             {
               "type": "document",
               "arrayItem": true,
               "isActivated": true,
-              "GUID": "5c6e80a9-f2a7-4be4-96a1-f951a93e72bb",
+              "GUID": "2d49628f-a9bb-45c3-82fc-500772730b3c",
               "properties": [
                 {
                   "name": "tecnicoId",
                   "type": "objectId",
                   "required": true,
                   "isActivated": true,
-                  "GUID": "e6174540-4f9f-45a5-9203-c7323b353454"
+                  "GUID": "e969fb36-634b-4c91-a169-f96415f22461"
                 },
                 {
-                  "name": "nombre",
+                  "name": "nombreCompleto",
                   "type": "string",
                   "required": true,
                   "isActivated": true,
-                  "GUID": "a29cffc1-0434-4b2c-a413-538249dc367a"
+                  "GUID": "469b8d85-92da-4349-9265-7f257fb7de24"
                 }
               ]
             }
@@ -759,61 +659,48 @@
           "required": true,
           "enum": [
             "recibida",
-            "en_diagnostico",
-            "pendiente_autorizacion",
-            "en_ejecucion",
-            "lista_para_entrega",
+            "en diagnóstico",
+            "pendiente de autorización",
+            "en ejecución",
+            "lista para entrega",
             "entregada",
             "cancelada"
           ],
           "isActivated": true,
-          "GUID": "a800b6a1-a3c2-4883-baac-726a694b94ad"
+          "GUID": "b115c603-fc3d-4426-b820-ac3011283cd3"
         },
         {
           "name": "recepcion",
           "type": "document",
           "required": true,
           "isActivated": true,
-          "GUID": "cb56d439-c76b-41fb-b4de-ddeab42f849d",
+          "GUID": "7f3369a8-9fba-4216-86af-074345f37e62",
           "properties": [
-            {
-              "name": "fechaRecepcion",
-              "type": "date",
-              "required": true,
-              "isActivated": true,
-              "GUID": "f37125de-3543-4b7f-b3d7-37b5881e8077"
-            },
-            {
-              "name": "fechaEstimadaEntrega",
-              "type": "date",
-              "isActivated": true,
-              "GUID": "541776a9-7951-4cff-9ef9-34178351431f"
-            },
             {
               "name": "problemaReportado",
               "type": "string",
               "required": true,
               "isActivated": true,
-              "GUID": "17593f51-33cc-4317-a89f-1f2ac2f9a960"
+              "GUID": "5095e934-06cd-4ee3-916b-85ae9c6d175a"
             },
             {
               "name": "condicionesObservadas",
               "type": "string",
               "required": true,
               "isActivated": true,
-              "GUID": "2955b182-cbfb-4405-a607-c9d9c77b923c"
+              "GUID": "c357a6d8-88da-4cc6-9044-7531b24a063e"
             },
             {
               "name": "accesoriosEntregados",
               "type": "array",
               "isActivated": true,
-              "GUID": "e014f91f-a590-40f6-a23b-54d37dfe43f5",
+              "GUID": "4ecfd826-cfc2-4c3b-8493-d8cd6db06817",
               "properties": [
                 {
                   "type": "string",
                   "arrayItem": true,
                   "isActivated": true,
-                  "GUID": "70462ed6-3979-4959-930e-aa3d773835ee"
+                  "GUID": "9b023a70-391a-4472-8d62-0a249ebf80b4"
                 }
               ]
             },
@@ -821,33 +708,34 @@
               "name": "fotografias",
               "type": "array",
               "isActivated": true,
-              "GUID": "e736a6f7-2700-4894-babb-0a856b00d6b4",
+              "GUID": "f6dac44d-e234-481a-a0bc-d6f76033d5cd",
               "properties": [
                 {
                   "type": "document",
                   "arrayItem": true,
                   "isActivated": true,
-                  "GUID": "eeafddfa-e181-40e3-ae61-75107385ffe8",
+                  "GUID": "14d67aa8-6953-4028-9203-47302383de5d",
                   "properties": [
                     {
                       "name": "nombreArchivo",
                       "type": "string",
                       "required": true,
                       "isActivated": true,
-                      "GUID": "6d00a49a-7aa1-48b2-92a5-051dee688c75"
+                      "GUID": "8514f4a7-fc5b-455a-85a5-7e50fd291e25"
                     },
                     {
                       "name": "descripcion",
                       "type": "string",
+                      "required": true,
                       "isActivated": true,
-                      "GUID": "56e52730-80dd-4c7b-8eca-ba42c9b43d81"
+                      "GUID": "854f8008-b259-4fe5-b9d6-e8b4da236019"
                     },
                     {
                       "name": "ubicacion",
                       "type": "string",
                       "required": true,
                       "isActivated": true,
-                      "GUID": "d1a1d053-5489-481c-9868-1f6c57667867"
+                      "GUID": "f25166f1-9307-48dd-9992-12c314b08dfb"
                     }
                   ]
                 }
@@ -859,104 +747,100 @@
           "name": "diagnostico",
           "type": "document",
           "isActivated": true,
-          "GUID": "a350ed44-1778-48a8-8a0b-d7cf6dd68b36",
+          "GUID": "3b62122d-707b-44ae-8a45-5e37630abed9",
           "properties": [
-            {
-              "name": "fechaDiagnostico",
-              "type": "date",
-              "isActivated": true,
-              "GUID": "9cd2ed15-f83d-4588-8438-af9cae02bae8"
-            },
-            {
-              "name": "tecnicoResponsableId",
-              "type": "objectId",
-              "isActivated": true,
-              "GUID": "8989f2a7-7b52-4943-aff8-3b7179260b59"
-            },
             {
               "name": "componentesRevisados",
               "type": "array",
               "isActivated": true,
-              "GUID": "9120e76f-c7e4-4009-9c67-a10897bf12e3",
+              "GUID": "b9681d4f-e243-4263-a615-abee728687df",
               "properties": [
                 {
                   "type": "string",
                   "arrayItem": true,
                   "isActivated": true,
-                  "GUID": "85f12702-042b-433e-8e10-0663845e9a76"
+                  "GUID": "7de672cb-01d8-4043-a04b-844272660dd4"
                 }
               ]
+            },
+            {
+              "name": "condicion",
+              "type": "string",
+              "isActivated": true,
+              "GUID": "a1fadcf4-4cab-438e-97e5-e21772c93d24"
             },
             {
               "name": "hallazgos",
               "type": "array",
               "isActivated": true,
-              "GUID": "9b5ce0b0-5405-4d62-8f3d-aadc6b467524",
+              "GUID": "cee563f7-7707-4349-a6b1-0accff29342a",
               "properties": [
                 {
                   "type": "document",
                   "arrayItem": true,
                   "isActivated": true,
-                  "GUID": "0ae3d897-146c-44c0-ae61-2ef9ddc5a299",
+                  "GUID": "9cc045bf-990b-4142-a211-a9b2de99a791",
                   "properties": [
                     {
                       "name": "componente",
                       "type": "string",
                       "required": true,
                       "isActivated": true,
-                      "GUID": "6f7be09a-cbac-4371-bb3e-2537b9b5620d"
+                      "GUID": "f3dc3d2e-cb22-4872-bb3b-2f12392104b7"
                     },
                     {
                       "name": "descripcion",
                       "type": "string",
                       "required": true,
                       "isActivated": true,
-                      "GUID": "e8dc5e7a-41b3-4fea-a38a-1f0d4c6c9f0d"
+                      "GUID": "51b213a6-930d-41e2-a8a3-b88bc44a1795"
                     },
                     {
-                      "name": "prioridad",
+                      "name": "prioridadAtencion",
                       "type": "string",
                       "required": true,
-                      "enum": [
-                        "baja",
-                        "media",
-                        "alta",
-                        "critica"
-                      ],
                       "isActivated": true,
-                      "GUID": "6d521092-9f84-4f34-bf28-c4617dfb2007"
+                      "GUID": "7908ca2d-e177-4ccc-af33-a091fbb659a5"
                     },
                     {
                       "name": "observaciones",
                       "type": "string",
+                      "required": true,
                       "isActivated": true,
-                      "GUID": "6d3ccabe-fed9-48b3-99d3-83c65ae443b0"
+                      "GUID": "c20e22ca-9749-4933-bb75-4509b2788812"
                     },
                     {
                       "name": "evidencias",
                       "type": "array",
                       "isActivated": true,
-                      "GUID": "5e8c618d-3bfc-46f0-94f3-fca2fda57a95",
+                      "GUID": "afbae90a-1f84-482f-a514-ab37db122abb",
                       "properties": [
                         {
                           "type": "document",
                           "arrayItem": true,
                           "isActivated": true,
-                          "GUID": "68986d91-7f27-4207-b847-c357eed52459",
+                          "GUID": "fa2c5096-a44b-490e-a1f0-6e9c6d46976c",
                           "properties": [
                             {
                               "name": "nombreArchivo",
                               "type": "string",
                               "required": true,
                               "isActivated": true,
-                              "GUID": "c3b3e26d-b9c5-40e2-abff-3867c3a1e08f"
+                              "GUID": "a3c9b1d8-f2f6-446d-b7b1-c5be8a03ec2d"
+                            },
+                            {
+                              "name": "descripcion",
+                              "type": "string",
+                              "required": true,
+                              "isActivated": true,
+                              "GUID": "394449a6-533e-428d-9e38-15317281eecf"
                             },
                             {
                               "name": "ubicacion",
                               "type": "string",
                               "required": true,
                               "isActivated": true,
-                              "GUID": "a4dd6cf1-2177-444f-92f0-d4e042f2230c"
+                              "GUID": "bea8a6cf-40b9-4ee1-88a3-8547d3808b40"
                             }
                           ]
                         }
@@ -970,13 +854,13 @@
               "name": "accionesRecomendadas",
               "type": "array",
               "isActivated": true,
-              "GUID": "4109a880-9abd-4861-9f22-776de1e7b0e1",
+              "GUID": "168bfd1f-c678-4cd0-8396-e35de1b2d8da",
               "properties": [
                 {
                   "type": "string",
                   "arrayItem": true,
                   "isActivated": true,
-                  "GUID": "5b8d845b-6c5f-4e22-aa72-4865916cad10"
+                  "GUID": "9f783205-815f-4646-9083-24b8984510bd"
                 }
               ]
             }
@@ -986,52 +870,33 @@
           "name": "propuesta",
           "type": "document",
           "isActivated": true,
-          "GUID": "01c98993-d60b-451f-9444-dbeca22085a4",
+          "GUID": "4286d1d6-e8ff-4321-91a5-24f80b8e7fd6",
           "properties": [
-            {
-              "name": "fechaPropuesta",
-              "type": "date",
-              "isActivated": true,
-              "GUID": "c379ce2e-d7b1-4452-b9b3-d9f2822edbdb"
-            },
             {
               "name": "trabajos",
               "type": "array",
               "isActivated": true,
-              "GUID": "9abc6d81-871d-43a3-a3d8-d6f5675f8daf",
+              "GUID": "1c87af70-d5c6-472d-a292-fd2b866cf0b2",
               "properties": [
                 {
                   "type": "document",
                   "arrayItem": true,
                   "isActivated": true,
-                  "GUID": "b4c96222-8c92-4497-922c-3b5cb8d6850c",
+                  "GUID": "c7ccb3b8-4292-4679-b40f-15ef98758c15",
                   "properties": [
                     {
-                      "name": "trabajoId",
+                      "name": "servicioODescripcion",
                       "type": "string",
                       "required": true,
                       "isActivated": true,
-                      "GUID": "571baa4c-2190-4e93-a525-138c89e1f101"
+                      "GUID": "93d22374-ec8f-4313-ac44-5ca0740b08cb"
                     },
                     {
-                      "name": "servicioCatalogoId",
-                      "type": "objectId",
-                      "isActivated": true,
-                      "GUID": "69239bff-7d33-46aa-bb73-14b1becc0050"
-                    },
-                    {
-                      "name": "descripcion",
+                      "name": "componenteInvolucrado",
                       "type": "string",
                       "required": true,
                       "isActivated": true,
-                      "GUID": "6a4f0cb4-da6e-4700-8805-3512b6b6ddd4"
-                    },
-                    {
-                      "name": "componente",
-                      "type": "string",
-                      "required": true,
-                      "isActivated": true,
-                      "GUID": "98550a2a-ed68-4999-853e-db604585c1d8"
+                      "GUID": "bb9edc56-18b9-481d-b75a-6c1a8b4ce0ea"
                     },
                     {
                       "name": "costoEstimadoManoObra",
@@ -1039,32 +904,33 @@
                       "mode": "decimal128",
                       "required": true,
                       "isActivated": true,
-                      "GUID": "9b55df25-c6bb-4448-a1c1-63a0f2905d0b"
+                      "GUID": "ebc0a502-4f9f-4f9e-bcc1-899231543737"
                     },
                     {
                       "name": "repuestosPrevistos",
                       "type": "array",
                       "isActivated": true,
-                      "GUID": "a87500ce-1f80-4cd9-9032-0205242c4e06",
+                      "GUID": "aee45e08-15d3-41d4-942d-eb533cc0fe05",
                       "properties": [
                         {
                           "type": "document",
                           "arrayItem": true,
                           "isActivated": true,
-                          "GUID": "413201dc-45a5-43ce-995d-592496ac6dd1",
+                          "GUID": "3176075c-d38f-422e-a925-b689e60e250f",
                           "properties": [
                             {
                               "name": "nombre",
                               "type": "string",
                               "required": true,
                               "isActivated": true,
-                              "GUID": "ac9c93a6-5a6d-4f4e-bb5c-a2817ab70b2b"
+                              "GUID": "2b750f0d-dcff-4c60-b87c-722561fc8705"
                             },
                             {
-                              "name": "especificaciones",
+                              "name": "especificacionesRelevantes",
                               "type": "string",
+                              "required": true,
                               "isActivated": true,
-                              "GUID": "8b35baeb-437a-4084-b099-044cd7354552"
+                              "GUID": "86c4a861-b204-4060-a5a9-41658a132504"
                             },
                             {
                               "name": "cantidad",
@@ -1072,7 +938,7 @@
                               "mode": "int",
                               "required": true,
                               "isActivated": true,
-                              "GUID": "f28de1eb-2640-494b-b730-78f43ce78679"
+                              "GUID": "841507cd-060c-4148-9d65-b726d98d4f36"
                             },
                             {
                               "name": "precioUnitarioEstimado",
@@ -1080,60 +946,59 @@
                               "mode": "decimal128",
                               "required": true,
                               "isActivated": true,
-                              "GUID": "162c19bf-d0ac-4c30-b244-926af60d5c9f"
+                              "GUID": "73e46091-e449-4927-b65e-fd4ae4d56763"
                             }
                           ]
                         }
                       ]
                     },
                     {
-                      "name": "estadoAutorizacion",
+                      "name": "observaciones",
                       "type": "string",
                       "required": true,
-                      "enum": [
-                        "pendiente",
-                        "autorizado",
-                        "rechazado"
-                      ],
                       "isActivated": true,
-                      "GUID": "75bf9d1a-0f2e-4415-9b2a-55cd4595ef67"
+                      "GUID": "02b7b1e1-fcc2-452e-b543-dcd36c689aea"
                     },
                     {
-                      "name": "decisionCliente",
+                      "name": "autorizacionCliente",
                       "type": "document",
                       "isActivated": true,
-                      "GUID": "57dbb034-2c98-4448-aecf-fb68fffd3aea",
+                      "GUID": "63a273a4-a3e0-46bb-98a2-ddc43dfe00f4",
                       "properties": [
                         {
-                          "name": "fechaDecision",
+                          "name": "decision",
+                          "type": "string",
+                          "enum": [
+                            "autorizado",
+                            "rechazado"
+                          ],
+                          "isActivated": true,
+                          "GUID": "92adb1cb-8c84-47bc-b67e-74713022c1c4"
+                        },
+                        {
+                          "name": "fecha",
                           "type": "date",
                           "isActivated": true,
-                          "GUID": "14b8fd6e-6bbb-4d6e-8216-fc696b98f718"
+                          "GUID": "8d49b8ed-6ea0-4ee3-9f08-ef8073d0d8e6"
                         },
                         {
                           "name": "comentarios",
                           "type": "string",
                           "isActivated": true,
-                          "GUID": "7287acc6-64dd-44d2-9bb6-19477c367493"
+                          "GUID": "aa2bc227-2a63-4c7e-aaa7-2986ab96c472"
                         }
                       ]
-                    },
-                    {
-                      "name": "observaciones",
-                      "type": "string",
-                      "isActivated": true,
-                      "GUID": "26ce63c4-84b0-44fb-9516-f467b9f3355b"
                     }
                   ]
                 }
               ]
             },
             {
-              "name": "valorTotalEstimado",
+              "name": "valorEstimadoPropuesta",
               "type": "numeric",
               "mode": "decimal128",
               "isActivated": true,
-              "GUID": "a47900f3-1613-4a9e-941b-821438cef684"
+              "GUID": "713aa306-7f98-47ca-8d13-b33a32227563"
             }
           ]
         },
@@ -1141,82 +1006,70 @@
           "name": "ejecucion",
           "type": "document",
           "isActivated": true,
-          "GUID": "928eeaca-8f47-435c-bfa4-79fc5f87ff49",
+          "GUID": "0c3b3306-34f5-48ac-b8ac-b0a55d9f7e56",
           "properties": [
             {
               "name": "trabajosRealizados",
               "type": "array",
               "isActivated": true,
-              "GUID": "3fc85ae5-ebc5-4936-a774-0c7b02311116",
+              "GUID": "90176e5b-9e08-4d0d-ab43-698fe627d6ca",
               "properties": [
                 {
                   "type": "document",
                   "arrayItem": true,
                   "isActivated": true,
-                  "GUID": "ad960dab-020a-4d49-9bb8-36e741ee0001",
+                  "GUID": "64193dee-8bed-4662-8704-e9a8cbcd1e02",
                   "properties": [
                     {
-                      "name": "trabajoId",
+                      "name": "responsable",
                       "type": "string",
                       "required": true,
                       "isActivated": true,
-                      "GUID": "27a9fbeb-f7c1-42ae-998f-5f4ed2a982b9"
-                    },
-                    {
-                      "name": "responsableId",
-                      "type": "objectId",
-                      "required": true,
-                      "isActivated": true,
-                      "GUID": "b31f98d0-8361-446d-bd6f-e4720e6386ea"
+                      "GUID": "88894c6b-4e4c-437c-87e7-1636feace991"
                     },
                     {
                       "name": "fechaInicio",
                       "type": "date",
                       "isActivated": true,
-                      "GUID": "08288f9b-a5b0-47d7-88f2-2f0b2d0225bc"
+                      "GUID": "760949b4-4a00-44a7-b11d-6f6538d0e314"
                     },
                     {
                       "name": "fechaFinalizacion",
                       "type": "date",
                       "isActivated": true,
-                      "GUID": "30cc72f5-f410-4780-8d53-064a613be6aa"
+                      "GUID": "a1b19b8a-a84f-4823-bddc-40df6da6b961"
                     },
                     {
                       "name": "estado",
                       "type": "string",
                       "required": true,
-                      "enum": [
-                        "en_progreso",
-                        "finalizado",
-                        "detenido"
-                      ],
                       "isActivated": true,
-                      "GUID": "8a666250-4d2e-4811-8ecf-4f27f7abf41a"
+                      "GUID": "3ee47572-07ea-4265-b286-318a8624a2d5"
                     },
                     {
                       "name": "descripcionRealizada",
                       "type": "string",
                       "isActivated": true,
-                      "GUID": "a4b11318-e3a3-4b52-8e19-6d1f74686d42"
+                      "GUID": "a6352384-41e1-4ff2-80db-f9a3bd7517cc"
                     },
                     {
                       "name": "repuestosUtilizados",
                       "type": "array",
                       "isActivated": true,
-                      "GUID": "c1137034-a783-4ce9-bab4-90e4d727779f",
+                      "GUID": "b8385923-056d-419b-99bd-0ee8e632dda1",
                       "properties": [
                         {
                           "type": "document",
                           "arrayItem": true,
                           "isActivated": true,
-                          "GUID": "342fcb5d-0577-4c2b-96ea-c16952292ad7",
+                          "GUID": "a095e7db-e563-4b62-99b0-7413f64a8353",
                           "properties": [
                             {
                               "name": "nombre",
                               "type": "string",
                               "required": true,
                               "isActivated": true,
-                              "GUID": "6bdec072-fcd3-49c4-822e-031f15c2bfed"
+                              "GUID": "6c961a2c-1315-44bf-924b-8b25cd3211ed"
                             },
                             {
                               "name": "cantidad",
@@ -1224,7 +1077,7 @@
                               "mode": "int",
                               "required": true,
                               "isActivated": true,
-                              "GUID": "6b73b9c7-d3ca-4e2b-a5dc-17027cf77987"
+                              "GUID": "0c3fef41-41e6-48da-ae08-21f5217c79d5"
                             },
                             {
                               "name": "precioUnitarioAplicado",
@@ -1232,7 +1085,7 @@
                               "mode": "decimal128",
                               "required": true,
                               "isActivated": true,
-                              "GUID": "a695d45e-586f-4301-bbda-1b9bfeaa6a65"
+                              "GUID": "ffa79690-fc9e-473c-9355-30da2b269c34"
                             }
                           ]
                         }
@@ -1245,53 +1098,44 @@
           ]
         },
         {
-          "name": "historialEstados",
+          "name": "historialCambiosEstado",
           "type": "array",
           "required": true,
           "isActivated": true,
-          "GUID": "e9aaf5b7-13f5-407f-932a-c6ff0addb975",
+          "GUID": "215c1fd5-1154-4f0f-b03b-125328c6ae64",
           "properties": [
             {
               "type": "document",
               "arrayItem": true,
               "isActivated": true,
-              "GUID": "6eea2bb0-8ce5-44cc-b7a9-7fe27d784b84",
+              "GUID": "ad40f398-e484-4eda-b69f-5599eba64975",
               "properties": [
-                {
-                  "name": "estado",
-                  "type": "string",
-                  "required": true,
-                  "enum": [
-                    "recibida",
-                    "en_diagnostico",
-                    "pendiente_autorizacion",
-                    "en_ejecucion",
-                    "lista_para_entrega",
-                    "entregada",
-                    "cancelada"
-                  ],
-                  "isActivated": true,
-                  "GUID": "10537198-4b70-4d53-bc18-1dda55bd21db"
-                },
                 {
                   "name": "fecha",
                   "type": "date",
                   "required": true,
                   "isActivated": true,
-                  "GUID": "4e3a3347-ad07-4fc0-9e9c-35e5415fd4d3"
+                  "GUID": "ba88200d-912d-47e2-b92a-cc4458c154af"
                 },
                 {
-                  "name": "usuarioResponsableId",
-                  "type": "objectId",
+                  "name": "usuarioResponsable",
+                  "type": "string",
                   "required": true,
                   "isActivated": true,
-                  "GUID": "7cf7ed18-34d7-4660-a4aa-7ed0ef795e21"
+                  "GUID": "302c68dc-a69f-4c1a-85bb-3a97ff1bf290"
                 },
                 {
                   "name": "observacion",
                   "type": "string",
+                  "required": true,
                   "isActivated": true,
-                  "GUID": "10f4c787-ab70-499a-8649-ebf2700028bf"
+                  "GUID": "9d2a8da7-504a-4adb-875c-27ac350f610a"
+                },
+                {
+                  "name": "estado",
+                  "type": "string",
+                  "isActivated": true,
+                  "GUID": "48564d53-2d75-4bad-8c18-f0c3e25f9705"
                 }
               ]
             }
@@ -1301,75 +1145,75 @@
           "name": "revisionEntrega",
           "type": "document",
           "isActivated": true,
-          "GUID": "cdd2779b-58b6-41b8-9b0a-68e9629c710d",
+          "GUID": "b2428101-53d0-4f84-b713-b91d07824e27",
           "properties": [
-            {
-              "name": "fechaRevision",
-              "type": "date",
-              "isActivated": true,
-              "GUID": "f767beb0-6171-4578-abc1-02cc6caf301e"
-            },
             {
               "name": "puntosVerificados",
               "type": "array",
               "isActivated": true,
-              "GUID": "bcf14778-4aa1-4bae-b1f8-221114ff5b82",
+              "GUID": "4ea627cf-e762-4fb9-9dbe-cf3d3d099116",
               "properties": [
                 {
                   "type": "document",
                   "arrayItem": true,
                   "isActivated": true,
-                  "GUID": "3bea2132-7ea9-48e1-ad9d-fc25ad7904e1",
+                  "GUID": "b49a2bd2-a340-420f-aa68-3a2f79a9ca33",
                   "properties": [
                     {
                       "name": "punto",
                       "type": "string",
                       "required": true,
                       "isActivated": true,
-                      "GUID": "bce1f635-a966-4778-b9d9-56ba6c887150"
+                      "GUID": "a181b732-a127-4866-b8cd-471728c96e0b"
                     },
                     {
                       "name": "resultado",
                       "type": "bool",
                       "required": true,
                       "isActivated": true,
-                      "GUID": "8648e3f5-c733-474e-884f-e7198db618d5"
+                      "GUID": "1a8b2216-7387-4469-a315-5ea5a546376f"
                     }
                   ]
                 }
               ]
             },
             {
+              "name": "resultado",
+              "type": "string",
+              "isActivated": true,
+              "GUID": "b6f4a4d6-2ee7-428f-bbc3-7d8eea67c2cc"
+            },
+            {
+              "name": "recomendacionesUsoMantenimiento",
+              "type": "string",
+              "isActivated": true,
+              "GUID": "4c7108a7-e1fb-43ee-bd3a-c2c5bb553996"
+            },
+            {
               "name": "aprobada",
               "type": "bool",
               "isActivated": true,
-              "GUID": "b7e7c77f-14d3-4123-a3a4-ce7974441802"
-            },
-            {
-              "name": "recomendaciones",
-              "type": "string",
-              "isActivated": true,
-              "GUID": "c671f2d9-6ae7-4b69-bb8b-a120541ea1f6"
+              "GUID": "6c35b965-a5de-452c-ae05-1b6bd739a107"
             }
           ]
         },
         {
-          "name": "entregaConfirmada",
+          "name": "entrega",
           "type": "document",
           "isActivated": true,
-          "GUID": "449f0ceb-f42b-4162-b65f-49dcac46ec55",
+          "GUID": "cbf5d8a6-3ed4-4ee0-9079-895b308244e5",
           "properties": [
             {
-              "name": "fechaEntrega",
+              "name": "fecha",
               "type": "date",
               "isActivated": true,
-              "GUID": "cd1306f3-c2cc-4d55-9fec-a969b959c714"
+              "GUID": "85d24786-2535-4512-95ba-baf130b65d78"
             },
             {
-              "name": "confirmacionCliente",
+              "name": "confirmacionRecepcionCliente",
               "type": "bool",
               "isActivated": true,
-              "GUID": "1cfe6fc9-8755-4a07-b155-39ee5ae2fa8f"
+              "GUID": "82cbc05d-d313-4247-9448-d40a020d775a"
             }
           ]
         },
@@ -1377,47 +1221,41 @@
           "name": "garantias",
           "type": "array",
           "isActivated": true,
-          "GUID": "d4740100-8ea7-4385-af57-c19dc7fcab8a",
+          "GUID": "5a771cf9-b607-4146-918f-1635e83aa0f9",
           "properties": [
             {
               "type": "document",
               "arrayItem": true,
               "isActivated": true,
-              "GUID": "cec36948-7927-4070-ad4d-d3c845be27d3",
+              "GUID": "a5f34bfe-ad93-4f8a-b079-ba656c358a3f",
               "properties": [
                 {
-                  "name": "trabajoId",
+                  "name": "duracion",
                   "type": "string",
                   "required": true,
                   "isActivated": true,
-                  "GUID": "92711b85-42b3-4e92-af36-e94c27c0d896"
-                },
-                {
-                  "name": "duracionDias",
-                  "type": "numeric",
-                  "mode": "int",
-                  "required": true,
-                  "isActivated": true,
-                  "GUID": "28a63650-af8b-4030-a13a-8c1d2d343e20"
+                  "GUID": "6e7fb8af-c5d8-45c0-9204-2321abe50090"
                 },
                 {
                   "name": "fechaInicio",
                   "type": "date",
                   "required": true,
                   "isActivated": true,
-                  "GUID": "05cef35d-2d60-4853-aebb-d495c2ec0902"
+                  "GUID": "07599060-425a-42be-ac36-acf50fa782e2"
                 },
                 {
                   "name": "condiciones",
                   "type": "string",
+                  "required": true,
                   "isActivated": true,
-                  "GUID": "5995ea32-c009-4634-80e2-94fc6e4777c4"
+                  "GUID": "e2c68f6f-8c37-4cfd-bec6-6ca64ec7f336"
                 },
                 {
                   "name": "exclusiones",
                   "type": "string",
+                  "required": true,
                   "isActivated": true,
-                  "GUID": "c2b6c4e3-eefd-4749-8bdc-07b3fad6dcca"
+                  "GUID": "654dc2cc-7779-4167-89bd-57dc87690d75"
                 }
               ]
             }
@@ -1427,33 +1265,27 @@
           "name": "valoracion",
           "type": "document",
           "isActivated": true,
-          "GUID": "383385da-cd79-499e-941a-fca149cb44d9",
+          "GUID": "e8d70f8a-82ce-4bfa-a0a2-fc2d45a842af",
           "properties": [
             {
-              "name": "calificacion",
+              "name": "calificacionNumerica",
               "type": "numeric",
               "mode": "int",
               "required": true,
               "isActivated": true,
-              "GUID": "aa458165-5616-45c7-834d-969c9660375d"
+              "GUID": "ab33e5f6-850c-4977-8dce-16a7da3ffbc0"
             },
             {
               "name": "comentarios",
               "type": "string",
               "isActivated": true,
-              "GUID": "a5d2223f-ee1e-455d-907e-6acde43d5192"
+              "GUID": "ebedf9ed-0e0c-456e-89b6-29870a468a7f"
             },
             {
               "name": "sugerencias",
               "type": "string",
               "isActivated": true,
-              "GUID": "078911a7-2758-4904-9205-f0c33aea4c43"
-            },
-            {
-              "name": "fechaValoracion",
-              "type": "date",
-              "isActivated": true,
-              "GUID": "07dbaa5f-3066-444c-9501-ea275f8fa27f"
+              "GUID": "82dde696-6cac-4ec3-82ea-150b59dbcb3d"
             }
           ]
         }
@@ -1461,21 +1293,20 @@
       "definitions": {
         "type": "definitions",
         "properties": [],
-        "GUID": "d741e669-2dd9-49eb-b3ec-7899db96db99"
+        "GUID": "4847f69c-2772-491c-aa41-09513ed62824"
       },
       "isActivated": true,
       "additionalProperties": false,
       "validationLevel": "Strict",
       "validationAction": "Error",
       "storageEngineName": "WiredTiger",
-      "collectionUsers": [],
       "indexes": [],
       "collation": {},
       "sharding": {
         "unique": true,
         "collation": "null"
       },
-      "GUID": "df8305ed-e765-4069-b09e-286a7177d4b1",
+      "GUID": "2f4bd4cc-e8a5-4790-b944-ae8c2b3338d6",
       "bucketId": "179d16b8-c856-4729-8145-0abc01cdb028",
       "hackoladeMeta": {
         "validationErrors": {}
@@ -1487,11 +1318,11 @@
       "name": "New_Database",
       "type": "bucket",
       "collectionIds": [
-        "9e8dad4d-5e95-465d-ba36-2d7839885fb1",
-        "d02658e8-d14f-4487-8295-57452d9a9a75",
-        "7fa25990-4d58-4326-b6c1-eedcef5e404a",
-        "24bbbf55-448f-49bc-9937-40a33207e813",
-        "df8305ed-e765-4069-b09e-286a7177d4b1"
+        "624d3f49-07a2-4ca6-b824-fe44478ad109",
+        "a86d5ad3-0400-416a-82b3-d8f1324fbc9f",
+        "672b4087-758c-482c-b1f5-27c2ae1ea854",
+        "b543dda5-bd1c-46a3-b140-569e46fb5681",
+        "2f4bd4cc-e8a5-4790-b944-ae8c2b3338d6"
       ],
       "backgroundColor": {
         "r": 216,
@@ -1509,159 +1340,153 @@
   "users": [],
   "diagramViews": [],
   "idToNameHashTable": {
-    "179d16b8-c856-4729-8145-0abc01cdb028": "New_Database",
-    "9e8dad4d-5e95-465d-ba36-2d7839885fb1": "Usuarios",
-    "51279663-3627-4274-a18a-3e5dcfbf5286": "_id",
-    "3f5d666f-ee74-4aad-84be-556fffe88414": "nombre",
-    "9d615c84-af8f-47ff-9641-0c60270a7544": "documento",
-    "8f1aa51c-7cc0-44c9-8de9-511e2273b409": "correo",
-    "e44e9c7e-57e0-460d-bb1a-ac9ce0376d9d": "telefono",
-    "ba3df94e-b985-46cb-8019-7438a0c9655d": "rol",
-    "fe6519f9-abe1-4d54-9403-f9fba6d0e140": "fechaCreacion",
-    "1c0040b0-837a-4c77-a0fd-8656dadff545": "direccion",
-    "d02658e8-d14f-4487-8295-57452d9a9a75": "Bicicletas",
-    "5cad6d42-1f98-4249-be8e-09df092f8973": "_id",
-    "775a3830-daca-4811-9dd9-c3e696b6b6ff": "propietarioId",
-    "618a7a5b-1d7e-41f0-be11-c55636f9168c": "marca",
-    "ef74b10d-8440-40c1-9156-d984bf3816cf": "modelo",
-    "c338e7c5-6f0f-45d1-8e32-42da6aa48285": "color",
-    "c9ee3f01-614c-4bbe-a2ff-247d413c3249": "numero_serie",
-    "43a594c6-f5e4-491e-b4ce-cb63041702ec": "tamañoMarco",
-    "12304b0d-e97e-4231-9e9a-765ea3839ca3": "material",
-    "5b6bfd51-c1de-4518-af8d-42e931c4151f": "tamañoRueda",
-    "46ed8114-cc14-4afe-b217-93b2d4c7b2ea": "tipoFrenos",
-    "5f6e7533-26bc-40c9-8bd9-9ff00cbb3dc4": "transmision",
-    "0841b849-627d-4156-991e-a262680a5e79": "suspension",
-    "3e724c4c-1af6-4842-9f3d-ac98beb01b98": "recorrido",
-    "54a9c965-4825-412d-8793-cfdf0d8cfff7": "bateria",
-    "6c1f85ee-56af-4848-b031-1548d6dfdc49": "motor",
-    "7fa25990-4d58-4326-b6c1-eedcef5e404a": "citas",
-    "9ec2e544-d4f0-407d-ad71-b2c116c33d69": "_id",
-    "c0a40abf-d5ad-463d-adc6-19ceef7d59bf": "clienteId",
-    "6ed816ee-ba64-45aa-876e-c776788667b3": "bicicletaId",
-    "e048c9fb-86a4-441e-8c7c-eeae6be7bd44": "fechaHora",
-    "ecc9c5aa-9c3b-4ab0-97a1-26d38a374571": "motivo",
-    "ab905ee1-0228-47cf-99cf-568d2942164b": "ProblemasReportados",
-    "945fdfa7-bf4a-42af-86a1-9ac6ddaf5535": "serviciosInteres",
-    "c4b0b9b3-f66d-4c3d-9516-97b9aaf15242": "estado",
-    "5e7eb079-a944-44ff-a408-723aed0876b9": "observaciones",
-    "b91eba13-bb40-49cc-892e-f76a401928ec": "coordinadorId",
-    "9f2667cc-e0c8-4e86-a9a5-2385639bd30d": "fechaCreacion",
-    "24bbbf55-448f-49bc-9937-40a33207e813": "Catalogo",
-    "02467557-038e-4c09-a2ad-e9414d0ee1c6": "_id",
-    "26ff3aa3-a76e-47bc-a476-af07d637e5c2": "nombre",
-    "de49426b-5461-4b1d-84d0-d3c408172079": "categoria",
-    "e62478a2-b4fa-46d9-b7e3-c32a9c9d2b62": "descripcion",
-    "7fd06741-c08f-436e-85bb-2c14a4989522": "duracionEstimada",
-    "6c1fcf98-6259-4dd6-ad5d-ab05d97a7e9e": "precioReferencia",
-    "cefc99fd-43a1-43f5-8ab5-b64d03329f8d": "tareasHabituales",
-    "e38d5b04-1935-4720-86e2-f66d04ede860": "recomendaciones",
-    "df8305ed-e765-4069-b09e-286a7177d4b1": "ordenes_servicio",
-    "a2596666-fc22-4006-a2fa-dacc5715c9e0": "New Field",
-    "55da5aa5-9f93-446d-ac2b-f62627a12379": "New Field1",
-    "87245a3c-0120-4e92-ac6c-cdac44f3e035": "New Field2",
-    "0e7e55ac-358d-4353-887b-d04367cbe98a": "_id",
-    "5afa4751-81c2-421c-ac51-7c2243ac8167": "numeroOrden",
-    "f1248f59-40c1-4933-9765-1a24d1af0ac4": "citaId",
-    "8863dc9b-9bb7-455b-a5ce-7514a3cf24fb": "cliente",
-    "479153ec-3cb9-4640-8d5b-1a43dc7abdd4": "usuarioId",
-    "2f45ef6f-6de5-4ba2-bea3-cd3e57b6feac": "nombre",
-    "efcf2694-1c6b-4d15-81d1-d3856f8e3d63": "documento",
-    "4af53ea7-c314-42ac-84ed-ef71910cb999": "telefono",
-    "1689bbb7-dd59-4fed-9897-d7aa8e9347e1": "correo",
-    "bccdfb29-b91d-4f16-8f8f-d0a60473f0e2": "direccion",
-    "d636b24c-eed3-402d-b21a-580ab782ef59": "bicicleta",
-    "2a0e68d9-494e-40ee-a773-f036eafbb2d6": "bicicletaId",
-    "28a71ec5-1929-4300-8e82-10f5d63f2ce9": "marca",
-    "033c70ba-3618-4218-b993-5c09502414b1": "modelo",
-    "0f7bfa2d-0bc9-4f54-a640-8b58603e40fa": "tipo",
-    "b7a5aae9-ca15-469f-a30a-5b80062f93f4": "color",
-    "72a76d29-c30a-430d-8e03-8728d18fb1d1": "numeroSerie",
-    "2dc17736-081e-45f8-bf81-b836d01ff668": "coordinadorId",
-    "6daa73c8-7626-4c39-97d1-2f1163aea17d": "tecnicosAsignados",
-    "e6174540-4f9f-45a5-9203-c7323b353454": "tecnicoId",
-    "a29cffc1-0434-4b2c-a413-538249dc367a": "nombre",
-    "a800b6a1-a3c2-4883-baac-726a694b94ad": "estado",
-    "cb56d439-c76b-41fb-b4de-ddeab42f849d": "recepcion",
-    "f37125de-3543-4b7f-b3d7-37b5881e8077": "fechaRecepcion",
-    "541776a9-7951-4cff-9ef9-34178351431f": "fechaEstimadaEntrega",
-    "17593f51-33cc-4317-a89f-1f2ac2f9a960": "problemaReportado",
-    "2955b182-cbfb-4405-a607-c9d9c77b923c": "condicionesObservadas",
-    "e014f91f-a590-40f6-a23b-54d37dfe43f5": "accesoriosEntregados",
-    "e736a6f7-2700-4894-babb-0a856b00d6b4": "fotografias",
-    "6d00a49a-7aa1-48b2-92a5-051dee688c75": "nombreArchivo",
-    "56e52730-80dd-4c7b-8eca-ba42c9b43d81": "descripcion",
-    "d1a1d053-5489-481c-9868-1f6c57667867": "ubicacion",
-    "a350ed44-1778-48a8-8a0b-d7cf6dd68b36": "diagnostico",
-    "9cd2ed15-f83d-4588-8438-af9cae02bae8": "fechaDiagnostico",
-    "8989f2a7-7b52-4943-aff8-3b7179260b59": "tecnicoResponsableId",
-    "9120e76f-c7e4-4009-9c67-a10897bf12e3": "componentesRevisados",
-    "9b5ce0b0-5405-4d62-8f3d-aadc6b467524": "hallazgos",
-    "6f7be09a-cbac-4371-bb3e-2537b9b5620d": "componente",
-    "e8dc5e7a-41b3-4fea-a38a-1f0d4c6c9f0d": "descripcion",
-    "6d521092-9f84-4f34-bf28-c4617dfb2007": "prioridad",
-    "6d3ccabe-fed9-48b3-99d3-83c65ae443b0": "observaciones",
-    "5e8c618d-3bfc-46f0-94f3-fca2fda57a95": "evidencias",
-    "c3b3e26d-b9c5-40e2-abff-3867c3a1e08f": "nombreArchivo",
-    "a4dd6cf1-2177-444f-92f0-d4e042f2230c": "ubicacion",
-    "4109a880-9abd-4861-9f22-776de1e7b0e1": "accionesRecomendadas",
-    "01c98993-d60b-451f-9444-dbeca22085a4": "propuesta",
-    "c379ce2e-d7b1-4452-b9b3-d9f2822edbdb": "fechaPropuesta",
-    "9abc6d81-871d-43a3-a3d8-d6f5675f8daf": "trabajos",
-    "571baa4c-2190-4e93-a525-138c89e1f101": "trabajoId",
-    "69239bff-7d33-46aa-bb73-14b1becc0050": "servicioCatalogoId",
-    "6a4f0cb4-da6e-4700-8805-3512b6b6ddd4": "descripcion",
-    "98550a2a-ed68-4999-853e-db604585c1d8": "componente",
-    "9b55df25-c6bb-4448-a1c1-63a0f2905d0b": "costoEstimadoManoObra",
-    "a87500ce-1f80-4cd9-9032-0205242c4e06": "repuestosPrevistos",
-    "ac9c93a6-5a6d-4f4e-bb5c-a2817ab70b2b": "nombre",
-    "8b35baeb-437a-4084-b099-044cd7354552": "especificaciones",
-    "f28de1eb-2640-494b-b730-78f43ce78679": "cantidad",
-    "162c19bf-d0ac-4c30-b244-926af60d5c9f": "precioUnitarioEstimado",
-    "75bf9d1a-0f2e-4415-9b2a-55cd4595ef67": "estadoAutorizacion",
-    "57dbb034-2c98-4448-aecf-fb68fffd3aea": "decisionCliente",
-    "14b8fd6e-6bbb-4d6e-8216-fc696b98f718": "fechaDecision",
-    "7287acc6-64dd-44d2-9bb6-19477c367493": "comentarios",
-    "26ce63c4-84b0-44fb-9516-f467b9f3355b": "observaciones",
-    "a47900f3-1613-4a9e-941b-821438cef684": "valorTotalEstimado",
-    "928eeaca-8f47-435c-bfa4-79fc5f87ff49": "ejecucion",
-    "3fc85ae5-ebc5-4936-a774-0c7b02311116": "trabajosRealizados",
-    "27a9fbeb-f7c1-42ae-998f-5f4ed2a982b9": "trabajoId",
-    "b31f98d0-8361-446d-bd6f-e4720e6386ea": "responsableId",
-    "08288f9b-a5b0-47d7-88f2-2f0b2d0225bc": "fechaInicio",
-    "30cc72f5-f410-4780-8d53-064a613be6aa": "fechaFinalizacion",
-    "8a666250-4d2e-4811-8ecf-4f27f7abf41a": "estado",
-    "a4b11318-e3a3-4b52-8e19-6d1f74686d42": "descripcionRealizada",
-    "c1137034-a783-4ce9-bab4-90e4d727779f": "repuestosUtilizados",
-    "6bdec072-fcd3-49c4-822e-031f15c2bfed": "nombre",
-    "6b73b9c7-d3ca-4e2b-a5dc-17027cf77987": "cantidad",
-    "a695d45e-586f-4301-bbda-1b9bfeaa6a65": "precioUnitarioAplicado",
-    "e9aaf5b7-13f5-407f-932a-c6ff0addb975": "historialEstados",
-    "10537198-4b70-4d53-bc18-1dda55bd21db": "estado",
-    "4e3a3347-ad07-4fc0-9e9c-35e5415fd4d3": "fecha",
-    "7cf7ed18-34d7-4660-a4aa-7ed0ef795e21": "usuarioResponsableId",
-    "10f4c787-ab70-499a-8649-ebf2700028bf": "observacion",
-    "cdd2779b-58b6-41b8-9b0a-68e9629c710d": "revisionEntrega",
-    "f767beb0-6171-4578-abc1-02cc6caf301e": "fechaRevision",
-    "bcf14778-4aa1-4bae-b1f8-221114ff5b82": "puntosVerificados",
-    "bce1f635-a966-4778-b9d9-56ba6c887150": "punto",
-    "8648e3f5-c733-474e-884f-e7198db618d5": "resultado",
-    "b7e7c77f-14d3-4123-a3a4-ce7974441802": "aprobada",
-    "c671f2d9-6ae7-4b69-bb8b-a120541ea1f6": "recomendaciones",
-    "449f0ceb-f42b-4162-b65f-49dcac46ec55": "entregaConfirmada",
-    "cd1306f3-c2cc-4d55-9fec-a969b959c714": "fechaEntrega",
-    "1cfe6fc9-8755-4a07-b155-39ee5ae2fa8f": "confirmacionCliente",
-    "d4740100-8ea7-4385-af57-c19dc7fcab8a": "garantias",
-    "92711b85-42b3-4e92-af36-e94c27c0d896": "trabajoId",
-    "28a63650-af8b-4030-a13a-8c1d2d343e20": "duracionDias",
-    "05cef35d-2d60-4853-aebb-d495c2ec0902": "fechaInicio",
-    "5995ea32-c009-4634-80e2-94fc6e4777c4": "condiciones",
-    "c2b6c4e3-eefd-4749-8bdc-07b3fad6dcca": "exclusiones",
-    "383385da-cd79-499e-941a-fca149cb44d9": "valoracion",
-    "aa458165-5616-45c7-834d-969c9660375d": "calificacion",
-    "a5d2223f-ee1e-455d-907e-6acde43d5192": "comentarios",
-    "078911a7-2758-4904-9205-f0c33aea4c43": "sugerencias",
-    "07dbaa5f-3066-444c-9501-ea275f8fa27f": "fechaValoracion"
+    "02ef148b-6b2d-4124-af0e-57f62d27efd9": "_id",
+    "09b2e91e-a40c-47f5-8ae6-b8eb6b3d4527": "nombreCompleto",
+    "a6923c40-1254-4374-95bc-5a518ab91592": "documentoIdentificacion",
+    "6eb7d67f-c48b-4ed5-803d-b0e118acd867": "correoElectronico",
+    "f68a7b05-04f5-4864-bf01-2fbe903edd92": "numeroTelefono",
+    "f9d7ab6b-47d3-4197-9fb2-1c69c3ea8156": "rol",
+    "ef75b4d2-2371-4c18-98e3-7115d7a460cc": "direccion",
+    "642daac1-550b-4e66-b09c-b1a43ed54d15": "_id",
+    "ae12e495-b963-4d86-a40e-ba97ce03d344": "propietarioId",
+    "3d47d117-b7c5-44ca-b3b8-64d3d54b2d6c": "marca",
+    "71ad2032-6bd2-47fa-b58a-38937f3e3167": "modelo",
+    "32242e77-0f7b-4148-ae2e-febbdad84a38": "tipo",
+    "ed212931-0b1b-488b-b37f-7fc34e4cbeff": "color",
+    "850dfad0-c961-4cca-be73-24475b25a01a": "numeroSerie",
+    "615ebb55-7a1b-493b-880b-dd571e16707a": "caracteristicasComunes",
+    "3b7fca3a-6ac7-4203-8abf-2b0a26c075b5": "tamanoMarco",
+    "398b4161-3da6-4dc7-a691-59eaba708f3e": "material",
+    "99f09b2e-785e-4cc1-93fc-e7cc316c827a": "tamanoRueda",
+    "a43fa8e0-e42d-4a2a-aa9c-364c35cfedf8": "tipoFrenos",
+    "3ac0b39e-f873-4425-86d0-d5b9db080aa6": "transmision",
+    "91e45efe-8116-4f21-aa87-e4513a01a821": "especificacionesTipo",
+    "17b37065-f0b6-4f5c-93f1-a4ac18281c92": "suspension",
+    "47f2fca0-c023-4f26-aa2a-9f0f0d1d4108": "recorrido",
+    "a13e662b-71ea-40b9-b345-3db5ee4805b0": "bateria",
+    "954a61ec-d7c1-4b41-91eb-cb59320745b3": "motor",
+    "cc9ef255-8171-4d91-a013-7ff7d4864639": "_id",
+    "79d6eacf-7fe5-4170-bd4b-9d23ba9cca8a": "nombre",
+    "9c5adc39-fc49-4898-8416-8c51636d066b": "categoria",
+    "a235810a-32da-4b8d-bd7b-239a0d8d54b1": "descripcion",
+    "3301aab5-8382-40b0-beab-b5f4ebc12a41": "duracionEstimada",
+    "fa2ec12d-5cde-4940-9330-18cf4fd47616": "precioReferencia",
+    "32bbec52-c88b-41d1-a04e-69358bd6afea": "tareasHabituales",
+    "5418164d-2eb5-4938-b979-8e3df6427501": "recomendaciones",
+    "09abe19c-4a6d-4627-b652-01fd2095bb5f": "_id",
+    "aa5904f8-fdcc-482d-bc47-425fd0887824": "clienteId",
+    "64c868c8-d253-406e-9f6b-c45e4347d4cb": "bicicletaId",
+    "fffd03c7-1b83-4947-81f5-d3ea42b4687f": "fecha",
+    "34ee016f-86e6-49e5-ba03-033eebe65314": "hora",
+    "07e9941d-3e79-43e7-980f-c650f0137c50": "motivo",
+    "59f8f7c6-dd96-4e61-a7cc-e7efd1db0af5": "problemasObservados",
+    "7ae58b98-bca7-4049-a14c-cec603b4b7dd": "serviciosInteres",
+    "6e44f1df-8b0d-483c-bfca-7c9868af9f65": "estado",
+    "c487f90a-fd55-4ec3-a28e-c141838b9196": "observacionCambio",
+    "009682ca-26f4-46dc-a48a-0ba113aa4a07": "coordinadorId",
+    "87164c27-7b18-4397-a7ab-86737588c3a7": "_id",
+    "23327cf8-babf-48ab-bb76-4f2d0a126fcf": "citaId",
+    "d3a6a8c5-41f4-4aaa-b5ad-0ff79973a2b0": "cliente",
+    "8d9f4b33-4331-4d90-ae62-a6966e17cfbb": "usuarioId",
+    "c39fb29c-0bf3-4b9b-8623-03dc723e1ec2": "nombreCompleto",
+    "a56b512f-9823-4223-b03a-df604fb56388": "documentoIdentificacion",
+    "aa0f74fb-6f87-415c-badc-e4fd089f5695": "numeroTelefono",
+    "d4f51409-dda3-46b8-8168-10992bdd5b8b": "correoElectronico",
+    "97825b84-8616-42f7-a36a-6ed0092554c8": "direccion",
+    "199183d2-9a59-40f7-aac8-cc9cf360df52": "bicicleta",
+    "90cfee69-963d-47ab-81c0-009de9156014": "bicicletaId",
+    "114d1c06-0de4-4a58-b7c1-533d811faf52": "marca",
+    "deec6074-1293-473d-adc7-71c8abd48d1e": "modelo",
+    "a047328c-d914-4bff-ab5c-f57dcb5ec198": "tipo",
+    "5e06f067-f6af-4457-abeb-ebf986580866": "color",
+    "8c9a8915-47ca-4b6b-8c0d-4b63c8787ea3": "numeroSerie",
+    "0e554f1e-0f54-48e3-a63f-48f6783f61f4": "fechaRecepcion",
+    "3720937c-7b39-4514-b3d6-dd54ffcda255": "fechaEstimadaEntrega",
+    "dc3b86d7-ff8c-4368-91b6-a91ae46099e6": "coordinadorResponsable",
+    "ef05c63a-4748-44a5-bce9-d15cb968c6b1": "coordinadorId",
+    "9a4ba8e8-fb7c-433c-90a9-614c0981ca96": "nombreCompleto",
+    "37e3558e-fe2c-4815-8b70-bad86f401d47": "tecnicosAsignados",
+    "e969fb36-634b-4c91-a169-f96415f22461": "tecnicoId",
+    "469b8d85-92da-4349-9265-7f257fb7de24": "nombreCompleto",
+    "b115c603-fc3d-4426-b820-ac3011283cd3": "estado",
+    "7f3369a8-9fba-4216-86af-074345f37e62": "recepcion",
+    "5095e934-06cd-4ee3-916b-85ae9c6d175a": "problemaReportado",
+    "c357a6d8-88da-4cc6-9044-7531b24a063e": "condicionesObservadas",
+    "4ecfd826-cfc2-4c3b-8493-d8cd6db06817": "accesoriosEntregados",
+    "f6dac44d-e234-481a-a0bc-d6f76033d5cd": "fotografias",
+    "8514f4a7-fc5b-455a-85a5-7e50fd291e25": "nombreArchivo",
+    "854f8008-b259-4fe5-b9d6-e8b4da236019": "descripcion",
+    "f25166f1-9307-48dd-9992-12c314b08dfb": "ubicacion",
+    "3b62122d-707b-44ae-8a45-5e37630abed9": "diagnostico",
+    "b9681d4f-e243-4263-a615-abee728687df": "componentesRevisados",
+    "a1fadcf4-4cab-438e-97e5-e21772c93d24": "condicion",
+    "cee563f7-7707-4349-a6b1-0accff29342a": "hallazgos",
+    "f3dc3d2e-cb22-4872-bb3b-2f12392104b7": "componente",
+    "51b213a6-930d-41e2-a8a3-b88bc44a1795": "descripcion",
+    "7908ca2d-e177-4ccc-af33-a091fbb659a5": "prioridadAtencion",
+    "c20e22ca-9749-4933-bb75-4509b2788812": "observaciones",
+    "afbae90a-1f84-482f-a514-ab37db122abb": "evidencias",
+    "a3c9b1d8-f2f6-446d-b7b1-c5be8a03ec2d": "nombreArchivo",
+    "394449a6-533e-428d-9e38-15317281eecf": "descripcion",
+    "bea8a6cf-40b9-4ee1-88a3-8547d3808b40": "ubicacion",
+    "168bfd1f-c678-4cd0-8396-e35de1b2d8da": "accionesRecomendadas",
+    "4286d1d6-e8ff-4321-91a5-24f80b8e7fd6": "propuesta",
+    "1c87af70-d5c6-472d-a292-fd2b866cf0b2": "trabajos",
+    "93d22374-ec8f-4313-ac44-5ca0740b08cb": "servicioODescripcion",
+    "bb9edc56-18b9-481d-b75a-6c1a8b4ce0ea": "componenteInvolucrado",
+    "ebc0a502-4f9f-4f9e-bcc1-899231543737": "costoEstimadoManoObra",
+    "aee45e08-15d3-41d4-942d-eb533cc0fe05": "repuestosPrevistos",
+    "2b750f0d-dcff-4c60-b87c-722561fc8705": "nombre",
+    "86c4a861-b204-4060-a5a9-41658a132504": "especificacionesRelevantes",
+    "841507cd-060c-4148-9d65-b726d98d4f36": "cantidad",
+    "73e46091-e449-4927-b65e-fd4ae4d56763": "precioUnitarioEstimado",
+    "02b7b1e1-fcc2-452e-b543-dcd36c689aea": "observaciones",
+    "63a273a4-a3e0-46bb-98a2-ddc43dfe00f4": "autorizacionCliente",
+    "92adb1cb-8c84-47bc-b67e-74713022c1c4": "decision",
+    "8d49b8ed-6ea0-4ee3-9f08-ef8073d0d8e6": "fecha",
+    "aa2bc227-2a63-4c7e-aaa7-2986ab96c472": "comentarios",
+    "713aa306-7f98-47ca-8d13-b33a32227563": "valorEstimadoPropuesta",
+    "0c3b3306-34f5-48ac-b8ac-b0a55d9f7e56": "ejecucion",
+    "90176e5b-9e08-4d0d-ab43-698fe627d6ca": "trabajosRealizados",
+    "88894c6b-4e4c-437c-87e7-1636feace991": "responsable",
+    "760949b4-4a00-44a7-b11d-6f6538d0e314": "fechaInicio",
+    "a1b19b8a-a84f-4823-bddc-40df6da6b961": "fechaFinalizacion",
+    "3ee47572-07ea-4265-b286-318a8624a2d5": "estado",
+    "a6352384-41e1-4ff2-80db-f9a3bd7517cc": "descripcionRealizada",
+    "b8385923-056d-419b-99bd-0ee8e632dda1": "repuestosUtilizados",
+    "6c961a2c-1315-44bf-924b-8b25cd3211ed": "nombre",
+    "0c3fef41-41e6-48da-ae08-21f5217c79d5": "cantidad",
+    "ffa79690-fc9e-473c-9355-30da2b269c34": "precioUnitarioAplicado",
+    "215c1fd5-1154-4f0f-b03b-125328c6ae64": "historialCambiosEstado",
+    "ba88200d-912d-47e2-b92a-cc4458c154af": "fecha",
+    "302c68dc-a69f-4c1a-85bb-3a97ff1bf290": "usuarioResponsable",
+    "9d2a8da7-504a-4adb-875c-27ac350f610a": "observacion",
+    "48564d53-2d75-4bad-8c18-f0c3e25f9705": "estado",
+    "b2428101-53d0-4f84-b713-b91d07824e27": "revisionEntrega",
+    "4ea627cf-e762-4fb9-9dbe-cf3d3d099116": "puntosVerificados",
+    "a181b732-a127-4866-b8cd-471728c96e0b": "punto",
+    "1a8b2216-7387-4469-a315-5ea5a546376f": "resultado",
+    "b6f4a4d6-2ee7-428f-bbc3-7d8eea67c2cc": "resultado",
+    "4c7108a7-e1fb-43ee-bd3a-c2c5bb553996": "recomendacionesUsoMantenimiento",
+    "6c35b965-a5de-452c-ae05-1b6bd739a107": "aprobada",
+    "cbf5d8a6-3ed4-4ee0-9079-895b308244e5": "entrega",
+    "85d24786-2535-4512-95ba-baf130b65d78": "fecha",
+    "82cbc05d-d313-4247-9448-d40a020d775a": "confirmacionRecepcionCliente",
+    "5a771cf9-b607-4146-918f-1635e83aa0f9": "garantias",
+    "6e7fb8af-c5d8-45c0-9204-2321abe50090": "duracion",
+    "07599060-425a-42be-ac36-acf50fa782e2": "fechaInicio",
+    "e2c68f6f-8c37-4cfd-bec6-6ca64ec7f336": "condiciones",
+    "654dc2cc-7779-4167-89bd-57dc87690d75": "exclusiones",
+    "e8d70f8a-82ce-4bfa-a0a2-fc2d45a842af": "valoracion",
+    "ab33e5f6-850c-4977-8dce-16a7da3ffbc0": "calificacionNumerica",
+    "ebedf9ed-0e0c-456e-89b6-29870a468a7f": "comentarios",
+    "82dde696-6cac-4ec3-82ea-150b59dbcb3d": "sugerencias",
+    "624d3f49-07a2-4ca6-b824-fe44478ad109": "usuarios",
+    "a86d5ad3-0400-416a-82b3-d8f1324fbc9f": "bicicletas",
+    "672b4087-758c-482c-b1f5-27c2ae1ea854": "catalogo_servicios",
+    "b543dda5-bd1c-46a3-b140-569e46fb5681": "citas",
+    "2f4bd4cc-e8a5-4790-b944-ae8c2b3338d6": "ordenes_servicio",
+    "179d16b8-c856-4729-8145-0abc01cdb028": "New_Database"
   },
   "definitions": {
     "type": "definitions",
@@ -1700,43 +1525,43 @@
       "dbLevel": {
         "erd": [
           {
-            "GUID": "9e8dad4d-5e95-465d-ba36-2d7839885fb1",
-            "x": 1061,
-            "y": 1068,
-            "width": 231,
-            "height": 177,
+            "GUID": "624d3f49-07a2-4ca6-b824-fe44478ad109",
+            "x": 1060,
+            "y": 1060,
+            "width": 250,
+            "height": 220,
             "color": {}
           },
           {
-            "GUID": "d02658e8-d14f-4487-8295-57452d9a9a75",
-            "x": 1498,
-            "y": 1074,
-            "width": 251,
-            "height": 357,
+            "GUID": "a86d5ad3-0400-416a-82b3-d8f1324fbc9f",
+            "x": 1450,
+            "y": 1060,
+            "width": 280,
+            "height": 320,
             "color": {}
           },
           {
-            "GUID": "7fa25990-4d58-4326-b6c1-eedcef5e404a",
-            "x": 1056,
-            "y": 1280,
-            "width": 276,
-            "height": 249,
+            "GUID": "672b4087-758c-482c-b1f5-27c2ae1ea854",
+            "x": 1850,
+            "y": 1060,
+            "width": 260,
+            "height": 260,
             "color": {}
           },
           {
-            "GUID": "24bbbf55-448f-49bc-9937-40a33207e813",
-            "x": 1509,
-            "y": 1462,
-            "width": 269,
-            "height": 213,
+            "GUID": "b543dda5-bd1c-46a3-b140-569e46fb5681",
+            "x": 1060,
+            "y": 1420,
+            "width": 250,
+            "height": 280,
             "color": {}
           },
           {
-            "GUID": "df8305ed-e765-4069-b09e-286a7177d4b1",
-            "x": 1126,
-            "y": 1587,
-            "width": 300,
-            "height": 450,
+            "GUID": "2f4bd4cc-e8a5-4790-b944-ae8c2b3338d6",
+            "x": 1450,
+            "y": 1420,
+            "width": 340,
+            "height": 500,
             "color": {}
           }
         ],

@@ -4,19 +4,21 @@
  * Proyecto: Sistema de Gestión de Servicios de Mantenimiento y Reparación de Bicicletas
  * 
  * Script: 02_indexes.js
- * Descripción: Creación de índices de rendimiento y de integridad de reglas de negocio.
+ * Descripción: Creación de índices conforme a las reglas del PDF:
+ *   - "El sistema deberá impedir citas activas duplicadas para una misma bicicleta en el mismo horario"
+ *   - "Una bicicleta no deberá tener más de una orden activa simultáneamente"
  */
 
 const dbName = "taller_bicicletas_db";
 const db = db.getSiblingDB(dbName);
 
-print(`[+] Configurando índices en la base de datos: ${dbName}`);
+print(`[+] Configurando índices en: ${dbName}`);
 
 // =============================================================================
 // 1. ÍNDICES: usuarios
 // =============================================================================
-db.usuarios.createIndex({ documento: 1 }, { unique: true, name: "idx_usuarios_documento_unico" });
-db.usuarios.createIndex({ correo: 1 }, { unique: true, name: "idx_usuarios_correo_unico" });
+db.usuarios.createIndex({ documentoIdentificacion: 1 }, { unique: true, name: "idx_usuarios_documento_unico" });
+db.usuarios.createIndex({ correoElectronico: 1 }, { unique: true, name: "idx_usuarios_correo_unico" });
 db.usuarios.createIndex({ rol: 1 }, { name: "idx_usuarios_rol" });
 
 // =============================================================================
@@ -37,13 +39,13 @@ db.catalogo_servicios.createIndex({ nombre: 1 }, { name: "idx_catalogo_nombre" }
 
 // =============================================================================
 // 4. ÍNDICES: citas
+// REGLA DEL PDF: "El sistema deberá impedir citas activas duplicadas para una misma bicicleta en el mismo horario."
 // =============================================================================
-db.citas.createIndex({ clienteId: 1, fechaHora: -1 }, { name: "idx_citas_cliente_fecha" });
+db.citas.createIndex({ clienteId: 1 }, { name: "idx_citas_cliente" });
 db.citas.createIndex({ estado: 1 }, { name: "idx_citas_estado" });
 
-// REGLA DE NEGOCIO: Impedir citas activas duplicadas para una misma bicicleta en el mismo horario
 db.citas.createIndex(
-  { bicicletaId: 1, fechaHora: 1 },
+  { bicicletaId: 1, fecha: 1, hora: 1 },
   {
     unique: true,
     partialFilterExpression: {
@@ -55,13 +57,13 @@ db.citas.createIndex(
 
 // =============================================================================
 // 5. ÍNDICES: ordenes_servicio
+// REGLA DEL PDF: "Una bicicleta podrá tener varias órdenes a lo largo del tiempo,
+// pero no deberá tener más de una orden activa simultáneamente."
 // =============================================================================
-db.ordenes_servicio.createIndex({ numeroOrden: 1 }, { unique: true, name: "idx_ordenes_numero_unico" });
-db.ordenes_servicio.createIndex({ "cliente.usuarioId": 1, "recepcion.fechaRecepcion": -1 }, { name: "idx_ordenes_cliente_fecha" });
+db.ordenes_servicio.createIndex({ "cliente.usuarioId": 1 }, { name: "idx_ordenes_cliente" });
 db.ordenes_servicio.createIndex({ estado: 1 }, { name: "idx_ordenes_estado" });
 db.ordenes_servicio.createIndex({ "tecnicosAsignados.tecnicoId": 1 }, { name: "idx_ordenes_tecnico" });
 
-// REGLA DE NEGOCIO: Una bicicleta no puede tener más de una orden activa de manera simultánea
 db.ordenes_servicio.createIndex(
   { "bicicleta.bicicletaId": 1 },
   {
@@ -70,10 +72,10 @@ db.ordenes_servicio.createIndex(
       estado: {
         $in: [
           "recibida",
-          "en_diagnostico",
-          "pendiente_autorizacion",
-          "en_ejecucion",
-          "lista_para_entrega"
+          "en diagnóstico",
+          "pendiente de autorización",
+          "en ejecución",
+          "lista para entrega"
         ]
       }
     },
@@ -81,4 +83,4 @@ db.ordenes_servicio.createIndex(
   }
 );
 
-print("[✓] Todos los índices e integridad de negocio fueron creados exitosamente.");
+print("[✓] Índices y restricciones de negocio creados exitosamente.");
