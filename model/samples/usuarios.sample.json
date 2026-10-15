@@ -1,0 +1,24 @@
+[
+  {
+    "_id": "652f0fa5e4b02b9a87654321",
+    "nombre": "Carlos Andrés Echeverry",
+    "documento": "1144123456",
+    "correo": "carlos.echeverry@uao.edu.co",
+    "telefono": "3154879621",
+    "rol": "cliente",
+    "direccion": "Carrera 100 # 16-20, Ciudad Jardín, Cali",
+    "fechaCreacion": "2026-01-15T09:30:00Z",
+    "activo": true
+  },
+  {
+    "_id": "652f0fa5e4b02b9a87654322",
+    "nombre": "Jhonatan Riascos Mina",
+    "documento": "16789452",
+    "correo": "jhonatan.tecnico@tallercycle.com",
+    "telefono": "3006549871",
+    "rol": "tecnico",
+    "direccion": "Barrio San Antonio, Cali",
+    "fechaCreacion": "2025-11-01T08:00:00Z",
+    "activo": true
+  }
+]

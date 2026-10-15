@@ -1,0 +1,552 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ordenes_servicio",
+  "type": "object",
+  "required": [
+    "numeroOrden",
+    "cliente",
+    "bicicleta",
+    "estado",
+    "recepcion",
+    "historialEstados"
+  ],
+  "properties": {
+    "_id": {
+      "type": "string",
+      "pattern": "^[0-9a-fA-F]{24}$"
+    },
+    "numeroOrden": {
+      "type": "string",
+      "pattern": "^ORD-[0-9]{4}-[0-9]{5}$"
+    },
+    "citaId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "cliente": {
+      "type": "object",
+      "required": [
+        "usuarioId",
+        "nombre",
+        "documento",
+        "telefono",
+        "correo"
+      ],
+      "properties": {
+        "usuarioId": {
+          "type": "string",
+          "pattern": "^[0-9a-fA-F]{24}$"
+        },
+        "nombre": {
+          "type": "string"
+        },
+        "documento": {
+          "type": "string"
+        },
+        "telefono": {
+          "type": "string"
+        },
+        "correo": {
+          "type": "string"
+        },
+        "direccion": {
+          "type": "string"
+        }
+      }
+    },
+    "bicicleta": {
+      "type": "object",
+      "required": [
+        "bicicletaId",
+        "marca",
+        "modelo",
+        "tipo",
+        "color"
+      ],
+      "properties": {
+        "bicicletaId": {
+          "type": "string",
+          "pattern": "^[0-9a-fA-F]{24}$"
+        },
+        "marca": {
+          "type": "string"
+        },
+        "modelo": {
+          "type": "string"
+        },
+        "tipo": {
+          "type": "string",
+          "enum": [
+            "urbana",
+            "ruta",
+            "montaña",
+            "eléctrica"
+          ]
+        },
+        "color": {
+          "type": "string"
+        },
+        "numeroSerie": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "coordinadorId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "tecnicosAsignados": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "tecnicoId",
+          "nombre"
+        ],
+        "properties": {
+          "tecnicoId": {
+            "type": "string",
+            "pattern": "^[0-9a-fA-F]{24}$"
+          },
+          "nombre": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "estado": {
+      "type": "string",
+      "enum": [
+        "recibida",
+        "en_diagnostico",
+        "pendiente_autorizacion",
+        "en_ejecucion",
+        "lista_para_entrega",
+        "entregada",
+        "cancelada"
+      ]
+    },
+    "recepcion": {
+      "type": "object",
+      "required": [
+        "fechaRecepcion",
+        "problemaReportado",
+        "condicionesObservadas"
+      ],
+      "properties": {
+        "fechaRecepcion": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "fechaEstimadaEntrega": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "problemaReportado": {
+          "type": "string"
+        },
+        "condicionesObservadas": {
+          "type": "string"
+        },
+        "accesoriosEntregados": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "fotografias": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "nombreArchivo",
+              "ubicacion"
+            ],
+            "properties": {
+              "nombreArchivo": {
+                "type": "string"
+              },
+              "descripcion": {
+                "type": "string"
+              },
+              "ubicacion": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "diagnostico": {
+      "type": "object",
+      "properties": {
+        "fechaDiagnostico": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "tecnicoResponsableId": {
+          "type": "string"
+        },
+        "componentesRevisados": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "hallazgos": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "componente",
+              "descripcion",
+              "prioridad"
+            ],
+            "properties": {
+              "componente": {
+                "type": "string"
+              },
+              "descripcion": {
+                "type": "string"
+              },
+              "prioridad": {
+                "type": "string",
+                "enum": [
+                  "baja",
+                  "media",
+                  "alta",
+                  "critica"
+                ]
+              },
+              "observaciones": {
+                "type": "string"
+              },
+              "evidencias": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "nombreArchivo",
+                    "ubicacion"
+                  ],
+                  "properties": {
+                    "nombreArchivo": {
+                      "type": "string"
+                    },
+                    "descripcion": {
+                      "type": "string"
+                    },
+                    "ubicacion": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "accionesRecomendadas": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "propuesta": {
+      "type": "object",
+      "properties": {
+        "fechaPropuesta": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "trabajos": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "trabajoId",
+              "descripcion",
+              "componente",
+              "costoEstimadoManoObra",
+              "estadoAutorizacion"
+            ],
+            "properties": {
+              "trabajoId": {
+                "type": "string"
+              },
+              "servicioCatalogoId": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "descripcion": {
+                "type": "string"
+              },
+              "componente": {
+                "type": "string"
+              },
+              "costoEstimadoManoObra": {
+                "type": "number"
+              },
+              "repuestosPrevistos": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "nombre",
+                    "cantidad",
+                    "precioUnitarioEstimado"
+                  ],
+                  "properties": {
+                    "nombre": {
+                      "type": "string"
+                    },
+                    "especificaciones": {
+                      "type": "string"
+                    },
+                    "cantidad": {
+                      "type": "integer"
+                    },
+                    "precioUnitarioEstimado": {
+                      "type": "number"
+                    }
+                  }
+                }
+              },
+              "estadoAutorizacion": {
+                "type": "string",
+                "enum": [
+                  "pendiente",
+                  "autorizado",
+                  "rechazado"
+                ]
+              },
+              "decisionCliente": {
+                "type": "object",
+                "properties": {
+                  "fechaDecision": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "comentarios": {
+                    "type": "string"
+                  }
+                }
+              },
+              "observaciones": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "valorTotalEstimado": {
+          "type": "number"
+        }
+      }
+    },
+    "ejecucion": {
+      "type": "object",
+      "properties": {
+        "trabajosRealizados": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "trabajoId",
+              "responsableId",
+              "estado"
+            ],
+            "properties": {
+              "trabajoId": {
+                "type": "string"
+              },
+              "responsableId": {
+                "type": "string"
+              },
+              "fechaInicio": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "fechaFinalizacion": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "estado": {
+                "type": "string",
+                "enum": [
+                  "en_progreso",
+                  "finalizado",
+                  "detenido"
+                ]
+              },
+              "descripcionRealizada": {
+                "type": "string"
+              },
+              "repuestosUtilizados": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "nombre",
+                    "cantidad",
+                    "precioUnitarioAplicado"
+                  ],
+                  "properties": {
+                    "nombre": {
+                      "type": "string"
+                    },
+                    "cantidad": {
+                      "type": "integer"
+                    },
+                    "precioUnitarioAplicado": {
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "historialEstados": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "estado",
+          "fecha",
+          "usuarioResponsableId"
+        ],
+        "properties": {
+          "estado": {
+            "type": "string",
+            "enum": [
+              "recibida",
+              "en_diagnostico",
+              "pendiente_autorizacion",
+              "en_ejecucion",
+              "lista_para_entrega",
+              "entregada",
+              "cancelada"
+            ]
+          },
+          "fecha": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "usuarioResponsableId": {
+            "type": "string"
+          },
+          "observacion": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "revisionEntrega": {
+      "type": "object",
+      "properties": {
+        "fechaRevision": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "puntosVerificados": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "punto",
+              "resultado"
+            ],
+            "properties": {
+              "punto": {
+                "type": "string"
+              },
+              "resultado": {
+                "type": "boolean"
+              }
+            }
+          }
+        },
+        "aprobada": {
+          "type": "boolean"
+        },
+        "recomendaciones": {
+          "type": "string"
+        }
+      }
+    },
+    "entregaConfirmada": {
+      "type": "object",
+      "properties": {
+        "fechaEntrega": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "confirmacionCliente": {
+          "type": "boolean"
+        }
+      }
+    },
+    "garantias": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "trabajoId",
+          "duracionDias",
+          "fechaInicio"
+        ],
+        "properties": {
+          "trabajoId": {
+            "type": "string"
+          },
+          "duracionDias": {
+            "type": "integer"
+          },
+          "fechaInicio": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "condiciones": {
+            "type": "string"
+          },
+          "exclusiones": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "valoracion": {
+      "type": "object",
+      "properties": {
+        "calificacion": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "comentarios": {
+          "type": "string"
+        },
+        "sugerencias": {
+          "type": "string"
+        },
+        "fechaValoracion": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  }
+}

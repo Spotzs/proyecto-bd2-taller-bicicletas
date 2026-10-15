@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "citas",
+  "type": "object",
+  "required": [
+    "clienteId",
+    "bicicletaId",
+    "fechaHora",
+    "motivo",
+    "estado",
+    "fechaCreacion"
+  ],
+  "properties": {
+    "_id": {
+      "type": "string",
+      "pattern": "^[0-9a-fA-F]{24}$"
+    },
+    "clienteId": {
+      "type": "string",
+      "pattern": "^[0-9a-fA-F]{24}$"
+    },
+    "bicicletaId": {
+      "type": "string",
+      "pattern": "^[0-9a-fA-F]{24}$"
+    },
+    "fechaHora": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "motivo": {
+      "type": "string"
+    },
+    "problemasReportados": {
+      "type": "string"
+    },
+    "serviciosInteres": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "estado": {
+      "type": "string",
+      "enum": [
+        "solicitada",
+        "confirmada",
+        "atendida",
+        "cancelada"
+      ]
+    },
+    "observaciones": {
+      "type": "string"
+    },
+    "coordinadorId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "fechaCreacion": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

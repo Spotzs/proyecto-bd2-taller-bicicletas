@@ -1,0 +1,193 @@
+[
+  {
+    "_id": "652f13f1e4b02b9abbccddee",
+    "numeroOrden": "ORD-2026-00001",
+    "citaId": "652f12e0e4b02b9a77889900",
+    "cliente": {
+      "usuarioId": "652f0fa5e4b02b9a87654321",
+      "nombre": "Carlos Andrés Echeverry",
+      "documento": "1144123456",
+      "telefono": "3154879621",
+      "correo": "carlos.echeverry@uao.edu.co",
+      "direccion": "Carrera 100 # 16-20, Ciudad Jardín, Cali"
+    },
+    "bicicleta": {
+      "bicicletaId": "652f10b8e4b02b9a12345678",
+      "marca": "Specialized",
+      "modelo": "Stumpjumper Comp Alloy",
+      "tipo": "montaña",
+      "color": "Rojo Carmín / Negro",
+      "numeroSerie": "WSBC601248596T"
+    },
+    "coordinadorId": "652f0fa5e4b02b9a87654323",
+    "tecnicosAsignados": [
+      {
+        "tecnicoId": "652f0fa5e4b02b9a87654322",
+        "nombre": "Jhonatan Riascos Mina"
+      }
+    ],
+    "estado": "entregada",
+    "recepcion": {
+      "fechaRecepcion": "2026-10-15T09:15:00Z",
+      "fechaEstimadaEntrega": "2026-10-16T17:00:00Z",
+      "problemaReportado": "Pérdida de tacto en maneta de freno trasero, ruido en transmisión",
+      "condicionesObservadas": "Bicicleta con barro moderado, cadena reseca",
+      "accesoriosEntregados": [
+        "Soporte de ciclo-computador Garmin",
+        "Porta-caramañola"
+      ],
+      "fotografias": [
+        {
+          "nombreArchivo": "recepcion_lateral.jpg",
+          "descripcion": "Foto lateral de ingreso",
+          "ubicacion": "https://storage.tallercycle.com/evidencias/recepcion_lateral.jpg"
+        }
+      ]
+    },
+    "diagnostico": {
+      "fechaDiagnostico": "2026-10-15T11:00:00Z",
+      "tecnicoResponsableId": "652f0fa5e4b02b9a87654322",
+      "componentesRevisados": [
+        "Frenos Hidráulicos",
+        "Transmisión",
+        "Suspensión"
+      ],
+      "hallazgos": [
+        {
+          "componente": "Freno Trasero",
+          "descripcion": "Pastillas cristalizadas al 10% y líquido degradado",
+          "prioridad": "alta",
+          "observaciones": "Riesgo de daño en rotor",
+          "evidencias": [
+            {
+              "nombreArchivo": "pastilla_desgastada.jpg",
+              "descripcion": "Pastilla al límite",
+              "ubicacion": "https://storage.tallercycle.com/evidencias/pastilla.jpg"
+            }
+          ]
+        }
+      ],
+      "accionesRecomendadas": [
+        "Purga y cambio de pastillas traseras"
+      ]
+    },
+    "propuesta": {
+      "fechaPropuesta": "2026-10-15T12:00:00Z",
+      "trabajos": [
+        {
+          "trabajoId": "TRAB-001",
+          "servicioCatalogoId": "652f11cfe4b02b9a33445566",
+          "descripcion": "Purga de freno trasero y cambio de pastillas",
+          "componente": "Frenos",
+          "costoEstimadoManoObra": 45000,
+          "repuestosPrevistos": [
+            {
+              "nombre": "Pastillas Metálicas SRAM G2",
+              "especificaciones": "Sinterizadas",
+              "cantidad": 1,
+              "precioUnitarioEstimado": 95000
+            }
+          ],
+          "estadoAutorizacion": "autorizado",
+          "decisionCliente": {
+            "fechaDecision": "2026-10-15T12:30:00Z",
+            "comentarios": "Aprobado repuesto original"
+          },
+          "observaciones": "Confirmado por el cliente"
+        }
+      ],
+      "valorTotalEstimado": 140000
+    },
+    "ejecucion": {
+      "trabajosRealizados": [
+        {
+          "trabajoId": "TRAB-001",
+          "responsableId": "652f0fa5e4b02b9a87654322",
+          "fechaInicio": "2026-10-15T14:00:00Z",
+          "fechaFinalizacion": "2026-10-15T15:30:00Z",
+          "estado": "finalizado",
+          "descripcionRealizada": "Purga completa con líquido nuevo y calibración",
+          "repuestosUtilizados": [
+            {
+              "nombre": "Pastillas Metálicas SRAM G2",
+              "cantidad": 1,
+              "precioUnitarioAplicado": 95000
+            }
+          ]
+        }
+      ]
+    },
+    "historialEstados": [
+      {
+        "estado": "recibida",
+        "fecha": "2026-10-15T09:15:00Z",
+        "usuarioResponsableId": "652f0fa5e4b02b9a87654323",
+        "observacion": "Bicicleta ingresada con cita"
+      },
+      {
+        "estado": "en_diagnostico",
+        "fecha": "2026-10-15T10:30:00Z",
+        "usuarioResponsableId": "652f0fa5e4b02b9a87654322",
+        "observacion": "Inicio de revisión"
+      },
+      {
+        "estado": "pendiente_autorizacion",
+        "fecha": "2026-10-15T12:00:00Z",
+        "usuarioResponsableId": "652f0fa5e4b02b9a87654323",
+        "observacion": "Cotización enviada"
+      },
+      {
+        "estado": "en_ejecucion",
+        "fecha": "2026-10-15T13:45:00Z",
+        "usuarioResponsableId": "652f0fa5e4b02b9a87654323",
+        "observacion": "Cliente autorizó TRAB-001"
+      },
+      {
+        "estado": "lista_para_entrega",
+        "fecha": "2026-10-15T16:00:00Z",
+        "usuarioResponsableId": "652f0fa5e4b02b9a87654322",
+        "observacion": "Control de calidad aprobado"
+      },
+      {
+        "estado": "entregada",
+        "fecha": "2026-10-15T17:30:00Z",
+        "usuarioResponsableId": "652f0fa5e4b02b9a87654323",
+        "observacion": "Retirada a satisfacción"
+      }
+    ],
+    "revisionEntrega": {
+      "fechaRevision": "2026-10-15T15:50:00Z",
+      "puntosVerificados": [
+        {
+          "punto": "Tacto de freno",
+          "resultado": true
+        },
+        {
+          "punto": "Ausencia de roces",
+          "resultado": true
+        }
+      ],
+      "aprobada": true,
+      "recomendaciones": "Asentar pastillas los primeros 20 km"
+    },
+    "entregaConfirmada": {
+      "fechaEntrega": "2026-10-15T17:30:00Z",
+      "confirmacionCliente": true
+    },
+    "garantias": [
+      {
+        "trabajoId": "TRAB-001",
+        "duracionDias": 30,
+        "fechaInicio": "2026-10-15T17:30:00Z",
+        "condiciones": "Cubre fallas de purga y reajuste",
+        "exclusiones": "No cubre lavado abrasivo"
+      }
+    ],
+    "valoracion": {
+      "calificacion": 5,
+      "comentarios": "Excelente servicio, la frenada quedó impecable",
+      "sugerencias": "Ninguna, muy amables",
+      "fechaValoracion": "2026-10-15T19:00:00Z"
+    }
+  }
+]

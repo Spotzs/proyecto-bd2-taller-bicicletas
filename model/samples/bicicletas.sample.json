@@ -1,0 +1,46 @@
+[
+  {
+    "_id": "652f10b8e4b02b9a12345678",
+    "propietarioId": "652f0fa5e4b02b9a87654321",
+    "marca": "Specialized",
+    "modelo": "Stumpjumper Comp Alloy",
+    "tipo": "montaña",
+    "color": "Rojo Carmín / Negro",
+    "numeroSerie": "WSBC601248596T",
+    "caracteristicasComunes": {
+      "tamanoMarco": "M",
+      "material": "Aluminio M5",
+      "tamanoRueda": "29\"",
+      "tipoFrenos": "Disco Hidráulico SRAM G2 R 4 Pistones",
+      "transmision": "SRAM NX Eagle 1x12"
+    },
+    "especificacionesTipo": {
+      "suspension": "Horquilla FOX FLOAT 34 Rhythm y Shock FOX FLOAT DPS Performance",
+      "recorrido": "140mm delantero / 130mm trasero"
+    },
+    "fechaRegistro": "2026-01-20T10:00:00Z",
+    "activo": true
+  },
+  {
+    "_id": "652f10b8e4b02b9a12345679",
+    "propietarioId": "652f0fa5e4b02b9a87654321",
+    "marca": "Trek",
+    "modelo": "Powerfly 4 Gen 4",
+    "tipo": "eléctrica",
+    "color": "Gris Titanio / Amarillo Flúor",
+    "numeroSerie": "WTU320C98541L",
+    "caracteristicasComunes": {
+      "tamanoMarco": "S",
+      "material": "Aluminio Alpha Platinum",
+      "tamanoRueda": "27.5\"",
+      "tipoFrenos": "Disco Hidráulico Tektro HD-M275",
+      "transmision": "Shimano Deore M4100 1x10"
+    },
+    "especificacionesTipo": {
+      "bateria": "Bosch PowerTube 625Wh",
+      "motor": "Bosch Performance CX 250W"
+    },
+    "fechaRegistro": "2026-02-12T16:00:00Z",
+    "activo": true
+  }
+]

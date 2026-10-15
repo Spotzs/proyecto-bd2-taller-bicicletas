@@ -1,0 +1,20 @@
+[
+  {
+    "_id": "652f11cfe4b02b9a33445566",
+    "nombre": "Mantenimiento General Preventivo",
+    "categoria": "mantenimiento preventivo",
+    "descripcion": "Desarme general, limpieza de transmisión por ultrasonido, engrase de rodamientos y ajuste general.",
+    "duracionEstimadaMinutos": 180,
+    "precioReferencia": 120000,
+    "tareasHabituales": [
+      "Lavado y desengrase de transmisión",
+      "Engrase de rodamientos sellados",
+      "Calibración de cambios y frenos"
+    ],
+    "recomendaciones": [
+      "Realizar cada 600 km o 3 meses",
+      "Lubricar cadena con cera especial"
+    ],
+    "activo": true
+  }
+]

@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "catalogo_servicios",
+  "type": "object",
+  "required": [
+    "nombre",
+    "categoria",
+    "descripcion",
+    "duracionEstimadaMinutos",
+    "precioReferencia",
+    "tareasHabituales",
+    "activo"
+  ],
+  "properties": {
+    "_id": {
+      "type": "string",
+      "pattern": "^[0-9a-fA-F]{24}$"
+    },
+    "nombre": {
+      "type": "string"
+    },
+    "categoria": {
+      "type": "string",
+      "enum": [
+        "mantenimiento preventivo",
+        "frenos",
+        "transmisión",
+        "ruedas",
+        "suspensión",
+        "componentes eléctricos"
+      ]
+    },
+    "descripcion": {
+      "type": "string"
+    },
+    "duracionEstimadaMinutos": {
+      "type": "integer",
+      "minimum": 15
+    },
+    "precioReferencia": {
+      "type": "number"
+    },
+    "tareasHabituales": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "recomendaciones": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "activo": {
+      "type": "boolean"
+    }
+  }
+}
